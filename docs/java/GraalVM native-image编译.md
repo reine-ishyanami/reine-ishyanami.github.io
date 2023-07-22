@@ -4,52 +4,51 @@
 2. 配置`JAVA_HOME`环境变量，内容为下载的graalvm的解压路径；将二进制文件，即`%JAVA_HOME%\bin`添加到`Path`环境变量中
 3. 安装native-image
 
-```shell
-gu.cmd install native-image
-# 也可以先下载native-image的jar然后手动安装
-gu.cmd install -L <jar包路径>
-```
+    ```shell
+    gu.cmd install native-image
+    # 也可以先下载native-image的jar然后手动安装
+    gu.cmd install -L <jar包路径>
+    ```
 
 4. 下载[Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
-> 选择以下组件
->  
-> - 英语语言包（选中文不知道可不可以，应该也行）
-> - MSVC v142 - VS 2019 C++x64/x86生成工具（或者之后的版本）
-> - Windows 10 SDK （10.0.19041.0 或者之后的版本）
-> - MSVC v142 - VS 2019 C++ x64/x86 Spectre缓解库（和上面的生成工具版本一样）
-
+    > 选择以下组件
+    >  
+    > - 英语语言包（选中文不知道可不可以，应该也行）
+    > - MSVC v142 - VS 2019 C++x64/x86生成工具（或者之后的版本）
+    > - Windows 10 SDK （10.0.19041.0 或者之后的版本）
+    > - MSVC v142 - VS 2019 C++ x64/x86 Spectre缓解库（和上面的生成工具版本一样）
 
 5. 配置环境变量
 
--  `Path`中添加vs msvc的bin目录，
-`D:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64`
-下面将`D:\Program Files\Microsoft Visual Studio\2022\Enterprise`记为`<vs>` 
--  通过注册表获取windows sdk的安装目录
-注册表路径`计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SDKs\Windows\v10.0`
-复制键为`InstallationFolder`的值，下面步骤会用到，记为`<windows10sdk>` 
--  配置环境变量`INCLUDE`
-`<windows10sdk>\Include\10.0.22000.0\ucrt;<windows10sdk>\Include\10.0.22000.0\um;<windows10sdk>\Include\10.0.22000.0\shared;<vs>\VC\Tools\MSVC\14.35.32215\include;` 
--  配置环境变量`LIB`
-`D<windows10sdk>\Lib\10.0.22000.0\um\x64;<windows10sdk>\Lib\10.0.22000.0\ucrt\x64;<vs>\VC\Tools\MSVC\14.35.32215\lib\x64;` 
+   -  `Path`中添加vs msvc的bin目录，
+   `D:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64`
+   下面将`D:\Program Files\Microsoft Visual Studio\2022\Enterprise`记为`<vs>` 
+   -  通过注册表获取windows sdk的安装目录
+   注册表路径`计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SDKs\Windows\v10.0`
+   复制键为`InstallationFolder`的值，下面步骤会用到，记为`<windows10sdk>` 
+   -  配置环境变量`INCLUDE`
+   `<windows10sdk>\Include\10.0.22000.0\ucrt;<windows10sdk>\Include\10.0.22000.0\um;<windows10sdk>\Include\10.0.22000.0\shared;<vs>\VC\Tools\MSVC\14.35.32215\include;` 
+   -  配置环境变量`LIB`
+   `D<windows10sdk>\Lib\10.0.22000.0\um\x64;<windows10sdk>\Lib\10.0.22000.0\ucrt\x64;<vs>\VC\Tools\MSVC\14.35.32215\lib\x64;` 
 
 6. 编译测试
-> 新建`HelloWorld.java`文件，内容如下
-
-```java
-public class HelloWorld {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
+    > 新建`HelloWorld.java`文件，内容如下
+    
+    ```java
+    public class HelloWorld {
+        public static void main(String[] args) {
+            System.out.println("Hello, World!");
+        }
     }
-}
-```
-> 编译测试 
-
-```shell
-javac HelloWorld.java
-native-image ./HelloWorld
-./HelloWorld # 出现Hello, World!代表环境配置成功
-```
+    ```
+    > 编译测试 
+    
+    ```shell
+    javac HelloWorld.java
+    native-image ./HelloWorld
+    ./HelloWorld # 出现Hello, World!代表环境配置成功
+    ```
 
 # GraalVM native-image编译SpringBoot3项目（Gradle）
 
@@ -58,9 +57,9 @@ native-image ./HelloWorld
 1.  创建SpringBoot3项目，需要勾选`GraalVM Native Support`依赖 
 2.  执行命令 
 
-```
-gradlew nativeCompile
-```
+    ```shell
+    gradlew nativeCompile
+    ```
 
 3. 运行
 
@@ -74,22 +73,21 @@ gradlew nativeCompile
 2. 配置环境变量`GRAALVM_HOME`和`JAVA_HOME`，内容为下载的graalvm的解压路径；将二进制文件，即`%JAVA_HOME%\bin`添加到`Path`环境变量中
 3. 下载native-image
 
-```shell
-gu.cmd install native-image
-# 也可以先下载native-image的jar然后手动安装
-gu.cmd install -L <jar包路径>
-```
+    ```shell
+    gu.cmd install native-image
+    # 也可以先下载native-image的jar然后手动安装
+    gu.cmd install -L <jar包路径>
+    ```
 
 4. 下载[Microsoft Visual Studio](https://visualstudio.microsoft.com/downloads/)
 
-> 选择以下组件
->  
-> - 英语语言包（选中文不知道可不可以，应该也行）
-> - 对v142生成工具的C++/CLI支持（或者之后的版本）
-> - MSVC v142 - VS 2019 C++x64/x86生成工具（或者之后的版本）
-> - Windows 10 SDK （10.0.19041.0 或者之后的版本）
-> - Windows Universal CRT SDK
-
+    > 选择以下组件
+    >  
+    > - 英语语言包（选中文不知道可不可以，应该也行）
+    > - 对v142生成工具的C++/CLI支持（或者之后的版本）
+    > - MSVC v142 - VS 2019 C++x64/x86生成工具（或者之后的版本）
+    > - Windows 10 SDK （10.0.19041.0 或者之后的版本）
+    > - Windows Universal CRT SDK
 
 5. 配置VS的环境变量，参考上方内容
 
@@ -194,32 +192,32 @@ pluginManagement {
 
 1. 启动终端（或者启动`x64 Native Tools Command Prompt for VS <year>`工具，则无需执行下面一行代码）
 
-```shell
-cmd /k """E:\MicrosoftVisualStudio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
-```
+    ```shell
+    cmd /k """E:\MicrosoftVisualStudio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+    ```
 
 2. 清理项目
 
-```shell
-gradlew clean
-```
+    ```shell
+    gradlew clean
+    ```
 
 3. 运行
 
-```shell
-gradlew run
-```
+    ```shell
+    gradlew run
+    ```
 
 4. 编译
 
-```shell
-gradlew nativeCompile nativeLink nativeBuild
-# 可以简写成
-gradlew nativeBuild
-```
+    ```shell
+    gradlew nativeCompile nativeLink nativeBuild
+    # 可以简写成
+    gradlew nativeBuild
+    ```
 
 5. 本地运行
 
-```shell
-gradlew nativeRun
-```
+    ```shell
+    gradlew nativeRun
+    ```
