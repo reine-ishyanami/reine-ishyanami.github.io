@@ -1,3 +1,12 @@
+---
+title: FFmpeg
+date: 2023/7/20
+tags:
+ - FFmepg
+categories:
+ - other
+---
+
 # FFmpeg
 
 ## 基础知识

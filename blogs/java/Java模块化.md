@@ -1,3 +1,12 @@
+---
+title: Java模块化
+date: 2023/7/20
+tags:
+ - Java
+categories:
+ - java
+---
+
 # Java模块化
 ## 一、模块系统简介
 

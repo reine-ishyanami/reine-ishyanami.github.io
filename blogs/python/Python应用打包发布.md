@@ -1,3 +1,12 @@
+---
+title: Python应用打包发布
+date: 2023/7/24
+tags:
+ - Python
+categories:
+ - python
+---
+
 # Python应用打包发布
 
 1. 注册Pypi账号
