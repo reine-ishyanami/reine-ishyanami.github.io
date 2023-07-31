@@ -15,7 +15,7 @@ export default defineUserConfig({
         logo: "/logo.png",
         author: "reine-ishyanami",
         authorAvatar: "https://avatars.githubusercontent.com/u/46278371?v=4",
-        docsRepo: "https://github.com/reine-ishyanami/vuepress-docs",
+        docsRepo: "https://github.com/reine-ishyanami/blog",
         docsBranch: "master",
         lastUpdatedText: "",
         // series 为原 sidebar
