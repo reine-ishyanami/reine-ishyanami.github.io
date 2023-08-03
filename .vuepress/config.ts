@@ -9,7 +9,9 @@ export default defineUserConfig({
     base: '/blog/',
     host: '0.0.0.0',
     port: 8080,
-    head: [],
+    head: [
+        ['link', {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}]
+    ],
     theme: recoTheme({
         style: "@vuepress-reco/style-default",
         author: "reine-ishyanami",
