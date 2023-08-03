@@ -12,7 +12,7 @@ categories:
 1. 注册Pypi账号
 2. 安装build（建议在虚拟环境中安装）
     ```shell
-    .venv\Script\activate
+    sourc.venv/bin/activate
     pip install build
     ```
 
