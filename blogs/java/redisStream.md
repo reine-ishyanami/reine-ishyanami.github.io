@@ -121,7 +121,7 @@ import java.util.Map;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class MailQueueListener implements StreamListener<String, MapRecord<String, String, String>> {
+public class Listener implements StreamListener<String, MapRecord<String, String, String>> {
 
     private final RedisStreamUtils streamUtils;
 
@@ -169,9 +169,18 @@ public class RedisStreamConfiguration {
 
     private final RedisConnectionFactory factory;
 
-    private final MailQueueListener listener;
+    private final Listener listener;
 
     private final StringRedisTemplate template;
+
+    @PostConstruct
+    public void initConsumerGroup() {
+        try {
+            template.opsForStream().createGroup(Constant.REDIS_STREAM, Constant.REDIS_STREAM_CONSUMER_GROUP);
+        } catch (RedisSystemException ignore) {
+            //避免组已存在异常 BUSYGROUP Consumer Group name already exists
+        }
+    }    
 
     /**
      * 此注解参数表示该bean在被创建时，调用bean的start方法，在被销毁时，调用bean的stop方法
@@ -205,12 +214,6 @@ public class RedisStreamConfiguration {
         StreamMessageListenerContainer<String, MapRecord<String, String, String>> container =
                 StreamMessageListenerContainer.create(factory, options);
 
-        try {
-            template.opsForStream().createGroup(Constant.REDIS_STREAM, Constant.REDIS_STREAM_CONSUMER_GROUP);
-        } catch (RedisSystemException ignore) {
-            //避免创建重复的组引发的异常导致程序终止 BUSYGROUP Consumer Group name already exists
-        }
-
         // 消费组，自动ack
         container.receiveAutoAck(
                 Consumer.from(
@@ -223,12 +226,11 @@ public class RedisStreamConfiguration {
         return container;
     }
 
-
     @Slf4j
     private static class StreamErrorHandler implements ErrorHandler {
         @Override
         public void handleError(Throwable t) {
-            t.printStackTrace();
+            log.error("redis stream exception: {}", t.getMessage());
         }
     }
 }
