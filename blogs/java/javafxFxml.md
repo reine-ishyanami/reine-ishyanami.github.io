@@ -189,3 +189,80 @@ categories:
 
 ### 第三种方法，通过事件总线
 [具体代码](https://github.com/reine-ishyanami/test-fxml/tree/master/event-bus)
+
+
+## 标签`<fx:root>`的使用
+
+### 第一种使用方式，独立使用
+
+1. 编写fxml文件`/fxml/inner.fxml`
+    ```xml
+    <fx:root alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="450.0" spacing="50.0" type="VBox" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1">
+        <children>
+            <Text fx:id="text" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <!--此处由于没有在fxml中指定控制器，以及没有在控制器中定义方法，则showWelcomeText会报红，无视即可-->
+            <Button mnemonicParsing="false" onAction="#showWelcomeText" text="click me!" />
+        </children>
+    </fx:root>
+    ```
+
+2. 编写控制器
+    ```java
+    public class MainLayout extends VBox {
+
+        @FXML
+        private Text text;
+
+        public MainLayout() throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/inner.fxml"));
+            fxmlLoader.setRoot(this);
+            fxmlLoader.setController(this);
+            fxmlLoader.load();
+        }
+
+        public String getText() {
+            return this.textProperty().get();
+        }
+
+        public void setText(String value) {
+            this.textProperty().set(value);
+        }
+
+        public StringProperty textProperty() {
+            return text.textProperty();
+        }
+
+        @FXML
+        protected void showWelcomeText() {
+            text.setText("Hello World");
+        }
+    }
+    ```
+
+3. 启动时展示该页面
+    ```java
+    public class MainApp1 extends Application {
+        // main方法可以省略
+        public static void main(String[] args) {
+            launch(args);
+        }
+
+        @Override
+        public void start(Stage primaryStage) throws Exception {
+            MainLayout root = new MainLayout();
+            root.setText("Open with Application1");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("单文件测试");
+            primaryStage.show();
+        }
+    }
+    ```
+
+### 第二种方法，作为其他fxml的子组件使用
+
+```xml
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="675.0" spacing="50.0" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1">
+    <Text text="Outer"/>
+    <MainLayout text="Inner"/>
+</VBox>
+```
