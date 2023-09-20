@@ -6,7 +6,7 @@ export default defineUserConfig({
     lang: 'zh-CN',
     title: 'Blog',
     description: 'VuePress Blog, 记录编程技巧',
-    base: '/blog/',
+    base: '/article/',
     host: '0.0.0.0',
     port: 8080,
     head: [
@@ -16,7 +16,7 @@ export default defineUserConfig({
         style: "@vuepress-reco/style-default",
         author: "reine-ishyanami",
         authorAvatar: "https://avatars.githubusercontent.com/u/46278371?v=4",
-        docsRepo: "https://github.com/reine-ishyanami/blog",
+        docsRepo: "https://github.com/reine-ishyanami/article",
         docsBranch: "master",
         lastUpdatedText: "",
         navbar: [
