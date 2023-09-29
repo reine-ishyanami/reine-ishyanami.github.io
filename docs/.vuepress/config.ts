@@ -4,7 +4,7 @@ import recoTheme from "vuepress-theme-reco";
 
 export default defineUserConfig({
     lang: 'zh-CN',
-    title: 'Blog',
+    title: 'blog',
     description: 'VuePress Blog, 记录编程技巧',
     base: '/article/',
     host: '0.0.0.0',
