@@ -1,15 +1,15 @@
-import { defineUserConfig } from 'vuepress';
+import { defineUserConfig } from "vuepress";
 import recoTheme from "vuepress-theme-reco";
 
 
 export default defineUserConfig({
-    lang: 'zh-CN',
-    title: 'blog',
-    description: 'VuePress Blog, 记录编程技巧',
-    base: '/article/',
-    host: '0.0.0.0',
+    lang: "zh-CN",
+    title: "reine's blog",
+    description: "VuePress Blog, 记录编程技巧",
+    base: "/article/",
+    host: "0.0.0.0",
     port: 8080,
-    head: [['link', { rel: 'icon', href: '/article/logo.png' }]],
+    head: [["link", { rel: "icon", href: "/article/logo.png" }]],
     theme: recoTheme({
         style: "@vuepress-reco/style-default",
         author: "reine-ishyanami",
