@@ -12,9 +12,11 @@ categories:
 
 **以下的jdk版本要求仅对于lts版本的jdk，其他版本的jdk中如果有对应的可执行程序，亦可成功运行**
 
-## 第一种方式 通过jdk自带的javafxpackager打包（仅oracle jdk8）
+## 1. javafxpackager
 
-**对于任意项目**
+> 版本要求: oracle jdk8
+> 
+> 项目类型: 对于任意类型项目
 
 1. 用IDEA打开项目，按下`ctrl+shift+alt+S`快捷键，进入项目结构窗口
 
@@ -43,11 +45,13 @@ categories:
 
 6. 构建完成后可在项目目录下的out文件夹找到对应的`exe`文件
 
-## 第二种方式 通过引入打包插件JavaPackager（对任意java版本）
+## 2. JavaPackager
 
-**仅对maven或gradle项目**
+> 版本要求: 任意java版本
+> 
+> 项目类型: 仅对maven或gradle项目
 
-> 插件主页[JavaPackager](https://github.com/fvarrui/JavaPackager)
+**插件主页[JavaPackager](https://github.com/fvarrui/JavaPackager)**
 
 1. windows需要安装[innosetup](https://jrsoftware.org/isinfo.php)和[wixtoolset](https://wixtoolset.org/), 推荐使用包管理器
 `Chocolatey`或`Scoop`进行安装
@@ -169,7 +173,11 @@ categories:
     gradle packageMyApp
     ```
 
-## 第三种方式 通过引入打包插件jpackage（jdk17以上，非lts版本最低为14）
+## 3. jpackage
+
+> 版本要求: jdk17以上，非lts版本最低为14
+> 
+> 项目类型: 对于任意类型项目，但推荐使用构建工具（如maven或gradle）
 
 **使用jpackage需要安装wixtoolset**
 
@@ -279,4 +287,9 @@ categories:
 
 ## 第四种方式 通过graalvm的native-image进行打包
 
-TODO
+
+> 版本要求: graalvm jdk17
+> 
+> 项目类型: 仅对maven或gradle项目
+
+[移步链接](./graalvmNative.md)
