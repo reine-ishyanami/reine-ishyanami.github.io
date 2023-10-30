@@ -229,11 +229,11 @@ categories:
 
 ### gradle项目配置
 
-1. IDEA中选择JavaFX项目gradle创建项目，`build.gradle`中添加，如果原来的文件中存在则可以忽略
-
 **更多配置参考[jlink plugin](https://badass-jlink-plugin.beryx.org/releases/latest/)**
 
 **注意：version字段只能包含数字和.**
+
+1. IDEA中选择JavaFX项目gradle创建项目，`build.gradle`中添加，如果原来的文件中存在则可以忽略
 
     ```groovy
     plugins {
