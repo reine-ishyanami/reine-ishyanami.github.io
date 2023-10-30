@@ -285,7 +285,7 @@ categories:
 3. 在`build/jpackage`文件夹中可以找到生成的exe和msi文件
 
 
-## 第四种方式 通过graalvm的native-image进行打包
+## 4. native-image
 
 
 > 版本要求: graalvm jdk17
