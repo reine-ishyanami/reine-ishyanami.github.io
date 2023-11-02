@@ -108,7 +108,11 @@ categories:
                                     <generateSetup>true</generateSetup>
                                     <generateMsi>true</generateMsi>
                                     <generateMsm>true</generateMsm>
+                                    <headerType>gui</headerType>
+                                    <setupMode>askTheUser</setupMode>
                                     <companyName>reine-ishyanami</companyName>
+                                    <!--可由用户自主选择要安装的路径-->
+                                    <disableDirPage>false</disableDirPage>
                                 </winConfig>
                             </configuration>
                         </execution>
@@ -162,6 +166,9 @@ categories:
             generateSetup = true
             generateMsi = true
             generateMsm = true
+            disableDirPage = false
+            headerType = "gui"
+            setupMode = "askTheUser"
             companyName = "reine-ishyanami"
         }
     }
