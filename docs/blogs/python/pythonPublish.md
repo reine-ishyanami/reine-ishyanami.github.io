@@ -34,7 +34,7 @@ categories:
     └── tests/
     ```
 
-5. 选中开源协议，将协议内容填到LICENSE文件中[choosealicense]([https://choosealicense.com/](https://choosealicense.com/))
+5. 选中开源协议，将协议内容填到LICENSE文件中[choosealicense](https://choosealicense.com/)
 6. 编写`pyproject.toml`项目配置文件
 
     ```toml
