@@ -2,8 +2,8 @@
 title: GraalVM native-image编译
 date: 2023/7/22
 tags:
- - Java
  - JavaFX
+ - SpringBoot
 categories:
  - java
 ---
