@@ -9,7 +9,7 @@ export default defineUserConfig({
     base: "/article/",
     host: "0.0.0.0",
     port: 8080,
-    head: [["link", { rel: "icon", href: "/article/logo.png" }]],
+    head: [["link", { rel: "icon", href: "https://avatars.githubusercontent.com/u/46278371?v=4" }]],
     theme: recoTheme({
         style: "@vuepress-reco/style-default",
         author: "reine-ishyanami",
