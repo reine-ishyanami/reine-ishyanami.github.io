@@ -10,6 +10,8 @@ categories:
 
 # GraalVM native-image编译
 
+## 基础环境配置
+
 1. 下载[graalvm](https://www.graalvm.org/downloads/)
 
 2. 配置`JAVA_HOME`和`GRAALVM_HOME`环境变量，内容为下载的graalvm的解压路径；将二进制文件，即`%JAVA_HOME%\bin`添加到`Path`环境变量中
@@ -82,19 +84,46 @@ categories:
 
 ## SpringBoot项目
 
-**GraalVM native-image编译SpringBoot3项目（Gradle）**
-
 此章节依赖于上一章节的环境配置
+
+**GraalVM native-image编译SpringBoot3项目**
+
+### maven项目
 
 1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖 
 
-2. 执行命令 
+2. 在`pom.xml`中添加程序入口类
+
+    ```xml
+    <project>
+        ...
+        <properties>
+            ...
+            <mainClass>com.example.Application</mainClass>
+        </properties>
+        ...
+    </project>
+    ```
+
+3. 执行命令
+
+    ```shell
+    ./mvnw -Pnative native:compile
+    ```
+
+4. 可在`project\target`文件夹中找到生成的可执行文件
+
+### gradle项目
+
+1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖 
+
+2. 执行命令 (gradle项目无需手动配置主启动类)
    
    ```shell
-   gradlew nativeCompile
+   ./gradlew nativeCompile
    ```
 
-3. 运行
+3. 可在`project\build\native\nativeCompile`文件夹中找到生成的可执行文件
 
 ## JavaFX项目
 
