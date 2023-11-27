@@ -16,7 +16,7 @@ categories:
 
 2. 配置`JAVA_HOME`和`GRAALVM_HOME`环境变量，内容为下载的graalvm的解压路径；将二进制文件，即`%JAVA_HOME%\bin`添加到`Path`环境变量中
 
-3. 安装native-image
+3. 安装native-image（新版graalvm已自带native-image，可省略此步骤）
    
    ```shell
    gu.cmd install native-image
@@ -39,12 +39,10 @@ categories:
 
 6. 查找对应的变量值
    
-   - vs msvc的bin目录`D:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64`
-     下面将`D:\Program Files\Microsoft Visual Studio\2022\Enterprise`记为`$vs` 
+   - vs msvc的bin目录`D:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64`，其中版本号`2022\Enterprise`因选择的不同版本而有所差异，下面在配置环境变量时将`D:\Program Files\Microsoft Visual Studio\2022\Enterprise`简写为`$vs` 
    
-   - 通过注册表获取windows sdk的安装目录
-     注册表路径`计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SDKs\Windows\v10.0`
-     复制键为`InstallationFolder`的值，下面步骤会用到，记为`$windows10sdk` 
+   - 通过注册表获取windows sdk的安装目录，注册表路径`计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SDKs\Windows\v10.0`
+     复制键为`InstallationFolder`的值，下面步骤会用到，简写为`$windows10sdk` 
 
 7. 需要添加的环境变量内容
 
