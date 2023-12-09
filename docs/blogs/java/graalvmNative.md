@@ -88,7 +88,19 @@ categories:
 
 ### maven项目
 
-1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖 
+1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖
+
+   > 项目的`pom.xml`会多出以下插件
+
+   ```xml
+   <plugins>
+      <plugin>
+         <groupId>org.graalvm.buildtools</groupId>
+         <artifactId>native-maven-plugin</artifactId>
+      </plugin>
+      ...
+   </plugins>
+   ```
 
 2. 在`pom.xml`中添加程序入口类
 
@@ -114,6 +126,15 @@ categories:
 ### gradle项目
 
 1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖 
+
+   > 项目的`build.gradle`会多出以下插件
+   
+   ```groovy
+   plugins {
+      ...
+      id 'org.graalvm.buildtools.native' version '0.9.28'
+   }
+   ```
 
 2. 执行命令 (gradle项目无需手动配置主启动类)
    
