@@ -86,6 +86,8 @@ categories:
 
 **GraalVM native-image编译SpringBoot3项目**
 
+[官方地址](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html#native-image)
+
 ### maven项目
 
 1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖
