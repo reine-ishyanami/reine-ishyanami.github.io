@@ -185,8 +185,6 @@ categories:
 > 
 > 项目类型: 对于任意类型项目，但推荐使用构建工具（如maven或gradle）
 
-**使用jpackage需要安装wixtoolset**
-
 ### maven项目配置
 
 1. IDEA中选择JavaFX项目maven创建项目，`pom.xml`默认会添加
