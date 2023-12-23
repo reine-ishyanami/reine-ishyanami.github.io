@@ -12,6 +12,7 @@ categories:
 ## 第一种方案，通过引用第三方jar包，整合JavaFX（oracle jdk8）
 
 1. 引入依赖
+
     ```xml
     <dependency>
         <groupId>de.roskenet</groupId>
@@ -21,6 +22,7 @@ categories:
     ```
 
 2. 创建fxml文件，如`main.fxml`
+
     ```xml
     <!--导包已省略-->
     <VBox xmlns="http://javafx.com/javafx"
@@ -32,10 +34,41 @@ categories:
     </VBox>
     ```
 
-3. 创建对应控制器`Main.java`
+3. 创建对应控制器`Main.java`，并将其定义为视图类
+
     ```java
     @FXMLController
+    @FXMLView("main.fxml")
     public class Main {
+
+        @FXML
+        private Text text;
+
+        @Value("${test.property}")
+        private String property;
+
+        @FXML
+        void modifyText(ActionEvent actionEvent) {
+            // 打开第二个窗口
+            // App.showView(Second.class);  // 不给模态直接替换场景
+            App.showView(Second.class, Modality.WINDOW_MODAL);  // 有模态参数则直接开启新窗口
+        }
+
+        @FXML
+        void initialize(){
+            // 验证属性注入是否成功
+            System.out.println(property);
+        }
+    }
+    ```
+
+4. 第二个窗口
+
+    ```java
+    @FXMLController
+    // second.fxml与main.fxml布局一样
+    @FXMLView(value = "second.fxml", css = "second.css", title = "第二个窗口", stageStyle = "DECORATED")
+    public class Second extends AbstractFxmlView {
 
         @FXML
         private Text text;
@@ -50,31 +83,38 @@ categories:
     }
     ```
 
-4. 创建视图类
-    ```java
-    @Component
-    @FXMLView("/main.fxml")
-    public class MainView extends AbstractFxmlView {
-    }
-    ```
-
 5. 启动类
+
     ```java
     @SpringBootApplication
-    public class TestSbFxDemoApplication extends AbstractJavaFxApplicationSupport {
+    public class App extends AbstractJavaFxApplicationSupport {
 
         public static void main(String[] args) {
-            launch(TestSbFxDemoApplication.class, MainView.class, args);
+            launch(App.class, Main.class, new SplashScreen() {
+                /**
+                * 重写闪屏，关闭启动时的加载图
+                */
+                @Override
+                public boolean visible() {
+                    return false;
+                }
+            }, args);
+
+            // 默认启动方式
+            // launch(App.class, Main.class, args);
         }
 
     }
     ```
 
-6. 启动时效果
+6. 有闪屏时的启动效果
     ![starting](../assets/javafxSpringboot_01.png)
 
 7. 启动完成后效果
+    
     ![started](../assets/javafxSpringboot_02.png)
+
+    ![Second](../assets/javafxSpringboot_03.png)
 
 8. 配置文件参数
     ```yml
@@ -84,7 +124,7 @@ categories:
         width: # 主窗口宽度
         height: # 主窗口高度
         resizable: # 主窗口是否可以调整大小 true false
-        appicons: # 主窗口的图标, 例如/images/logo.png可以读取到resources下的images目录下的logo.png
+      appicons: # 主窗口的图标, 例如/images/logo.png可以读取到resources下的images目录下的logo.png
       title: # 主窗口的标题    
     ```
 
@@ -217,7 +257,7 @@ public class Launcher {
 }
 ```
 
-*启动时会有如下警告，无视即可*
+*启动时会有如下警告，不影响使用，无视即可*
 > 9月 13, 2023 6:32:28 下午 com.sun.javafx.application.PlatformImpl startup
 > 
 > 警告: Unsupported JavaFX configuration: classes were loaded from 'unnamed module @6909b2de'
