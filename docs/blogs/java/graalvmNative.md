@@ -239,6 +239,8 @@ categories:
 3. 编译
 
     ```shell
+    gradle run  # 第2步描述的启动一次，测试所有UI控件，生成反射文件
+
     gradle nativeBuild # 执行此命令完成后可能需要等待一段时间，此命令执行完成后可以看的一个exe文件
 
     gradle nativeRun # 运行生成的exe文件
@@ -280,12 +282,12 @@ jobs:
       # 使用 Gradle 构建您的项目
       - name: GraalVM Native Build
         run:
-          .\gradlew nativeBuild nativePackage
-
-      # 将暂存目录作为构建工件上传。构建完成后您将能够下载它。
+          .\gradlew nativeBuild
+      # 上传打包完成后的产品，以供下载
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
+          # 打包后的压缩包名称
           name: XXX
           path: build/gluonfx/x86_64-windows/*.exe
 ```
