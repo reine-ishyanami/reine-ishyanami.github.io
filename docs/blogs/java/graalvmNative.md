@@ -219,6 +219,13 @@ categories:
     // 配置主启动类，记得修改成自己的主启动类的全限定名
     mainClassName = 'com.example.HelloApplication'
 
+    // 启动一次，对所有的UI控件进行功能测试，测试完成后正常关闭窗口，可以省略配置反射
+    // 反射配置文件生成在resources目录下的META-INF/native-image目录下（如异常关闭则不会生成）
+    // 推荐使用这种方式
+    run {
+        jvmArgs=["-agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image"]
+    }
+
     // 一些自定义的插件配置，可以不写
     gluonfx {
         // 一般填host
@@ -236,3 +243,49 @@ categories:
 
     gradle nativeRun # 运行生成的exe文件
     ```
+
+
+### 附录
+
+> javafx gradle项目的windows graalvm打包脚本（github action workflow），需要先运行gradle run生成反射配置并上传到远程仓库
+
+**相关链接**
+
+[graalvm](https://github.com/marketplace/actions/github-action-for-graalvm)
+
+[gradle](https://docs.github.com/zh/actions/publishing-packages/publishing-java-packages-with-gradle)
+
+```yml
+name: Windows Native-Image Build
+# 定义在推送tag时触发工作流程与手动触发工作流程
+on:
+  push:
+    tags:
+      - '*'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      # 安装GraalVM，配置JAVA_HOME GRAALVM_HOME
+      - name: Setup GraalVM
+        uses: graalvm/setup-graalvm@v1
+        with:
+          java-version: '21'
+          distribution: 'graalvm-community'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
+      # 使用 Gradle 构建您的项目
+      - name: GraalVM Native Build
+        run:
+          .\gradlew nativeBuild nativePackage
+
+      # 将暂存目录作为构建工件上传。构建完成后您将能够下载它。
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: XXX
+          path: build/gluonfx/x86_64-windows/*.exe
+```
