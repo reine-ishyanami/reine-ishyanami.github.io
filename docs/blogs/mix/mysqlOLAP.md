@@ -20,7 +20,7 @@ categories:
 
 
 ## 案例说明
-[相关数据库表文件](https://github.com/reine-ishyanami/blog/blob/master/code/employee.sql)
+[相关数据库表文件](https://github.com/reine-ishyanami/article/tree/master/code/mysqlOLAP)
 
 #### 表数据概览
 ![employee table](../assets/mysqlOLAP_01.png)
