@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: producer
+  r2dbc:
+    password: 123456
+    username: root
+    url: r2dbc:mysql://127.0.0.1:3306/reactor?serverZoneId=Asia/Shanghai
+logging:
+  level:
+    org.springframework.r2dbc: debug

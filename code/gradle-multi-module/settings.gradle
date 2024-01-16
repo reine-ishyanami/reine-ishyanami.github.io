@@ -1,0 +1,6 @@
+rootProject.name = 'gradle-multi-module'
+include 'producer'
+include 'entity'
+include 'consumer'
+include 'http'
+

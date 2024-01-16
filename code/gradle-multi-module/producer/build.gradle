@@ -1,0 +1,11 @@
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
+
+dependencies {
+    implementation(project(":entity"))
+//    starter依赖可以不引入
+//    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation "io.asyncer:r2dbc-mysql:${r2dbcMysqlVersion}"
+}

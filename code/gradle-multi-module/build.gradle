@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id "java-library"
+    id 'org.springframework.boot' version "${springbootVersion}"
+    id 'io.spring.dependency-management' version "${springManagementVersion}"
+}
+
+// 为所有模块定义，包括自身
+allprojects {
+    apply plugin: "java"
+
+    java {
+        sourceCompatibility = "${javaVersion}"
+        targetCompatibility = "${javaVersion}"
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+}
+
+// 为所有子模块定义
+subprojects {
+    dependencies {
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    }
+}
