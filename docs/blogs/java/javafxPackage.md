@@ -52,7 +52,7 @@ categories:
 
 **插件主页[JavaPackager](https://github.com/fvarrui/JavaPackager)**
 
-1. windows需要安装[innosetup](https://jrsoftware.org/isinfo.php)和[wixtoolset](https://wixtoolset.org/), 推荐使用包管理器
+1. windows需要安装[innosetup](https://jrsoftware.org/isinfo.php)和[wixtoolset v3](https://wixtoolset.org/), 推荐使用包管理器
 `Chocolatey`或`Scoop`进行安装
 
     * [Chocolatey](https://chocolatey.org/install)
@@ -181,7 +181,7 @@ categories:
 
 ## 3. jpackage
 
-> 版本要求: jdk17以上，非lts版本最低为14
+> 版本要求: jdk17以上，非lts版本最低为14，需要安装wixtoolset3.0，并将其工具包（light，candle）添加到环境变量
 > 
 > 项目类型: 对于任意类型项目，但推荐使用构建工具（如maven或gradle）
 
