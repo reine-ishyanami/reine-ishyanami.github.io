@@ -187,6 +187,8 @@ categories:
 
 ### maven项目配置
 
+**更多配置参考[javafx-maven-plugin](https://github.com/openjfx/javafx-maven-plugin)**
+
 1. IDEA中选择JavaFX项目maven创建项目，`pom.xml`默认会添加
 
     ```xml

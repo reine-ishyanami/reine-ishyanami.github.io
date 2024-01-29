@@ -166,9 +166,37 @@ categories:
             <plugins>
                 ...
                 <plugin>
+                    <groupId>org.openjfx</groupId>
+                    <artifactId>javafx-maven-plugin</artifactId>
+                    <version>0.0.8</version>
+                    <executions>
+                        <execution>
+                        <!-- Default configuration for running with: mvn clean javafx:run -->
+                        <id>default-cli</id>
+                            <configuration>
+                            <mainClass>com.reine.demo/com.reine.demo.HelloApplication</mainClass>
+                            <launcher>app</launcher>
+                            <jlinkZipName>app</jlinkZipName>
+                            <jlinkImageName>app</jlinkImageName>
+                            <noManPages>true</noManPages>
+                            <stripDebug>true</stripDebug>
+                            <noHeaderFiles>true</noHeaderFiles>
+                            <!-- 
+                                启动一次，对所有的UI控件进行功能测试，测试完成后正常关闭窗口，可以省略配置反射
+                                反射配置文件生成在resources目录下的META-INF/native-image目录下（如异常关闭则不会生成）
+                                如果项目文件比较多，不想配置反射或者不知道该怎么配置反射时，推荐使用这种方式
+                             -->
+                            <options>
+                                <option>-agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image</option>
+                            </options>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
                     <groupId>com.gluonhq</groupId>
                     <artifactId>gluonfx-maven-plugin</artifactId>
-                    <version>1.0.21</version>
+                    <version>1.0.22</version>
                     <configuration>
                         <target>host</target>
                         <bundlesList>
@@ -191,6 +219,8 @@ categories:
 3. 编译
 
     ```shell
+    mvn javafx:run  # 第2步描述的启动一次，测试所有UI控件，生成反射文件
+
     mvn gluonfx:build # 执行此命令完成后可能需要等待一段时间，此命令执行完成后可以看的一个exe文件
 
     mvn gluonfx:nativerun # 运行生成的exe文件
@@ -210,7 +240,7 @@ categories:
             }
         }
         dependencies {
-            classpath 'com.gluonhq:gluonfx-gradle-plugin:1.0.21'
+            classpath 'com.gluonhq:gluonfx-gradle-plugin:1.0.22'
         }
     }
     apply plugin: 'com.gluonhq.gluonfx-gradle-plugin'    
@@ -221,7 +251,7 @@ categories:
 
     // 启动一次，对所有的UI控件进行功能测试，测试完成后正常关闭窗口，可以省略配置反射
     // 反射配置文件生成在resources目录下的META-INF/native-image目录下（如异常关闭则不会生成）
-    // 推荐使用这种方式
+    // 如果项目文件比较多，不想配置反射或者不知道该怎么配置反射时，推荐使用这种方式
     run {
         jvmArgs=["-agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image"]
     }
