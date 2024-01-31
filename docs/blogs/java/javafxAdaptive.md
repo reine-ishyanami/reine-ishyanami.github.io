@@ -145,28 +145,35 @@ categories:
             fxmlLoader.load();
         }
 
+        private boolean initialized = false;
+
+        /**
+         * layoutChildren方法每次改变界面时都会调用，故使用一个标志变量，使绑定宽高的代码只执行一次
+         */
         @Override
         protected void layoutChildren() {
             super.layoutChildren();
-            top.setPrefHeight(50);
-            top.prefWidthProperty().bind(widthProperty());
-            bottom.setPrefHeight(50);
-            bottom.prefWidthProperty().bind(widthProperty());
-
-            middle.prefHeightProperty().bind(
-                    heightProperty()
-                            .subtract(top.heightProperty())
-                            .subtract(bottom.heightProperty())
-            );
-            left.prefWidthProperty().bind(
-                    widthProperty()
-                            .divide(3)
-            );
-            right.prefWidthProperty().bind(
-                    widthProperty()
-                            .divide(3)
-                            .multiply(2)
-            );
+            if (!initialized) {
+                top.setPrefHeight(50);
+                top.prefWidthProperty().bind(widthProperty());
+                bottom.setPrefHeight(50);
+                bottom.prefWidthProperty().bind(widthProperty());
+                middle.prefHeightProperty().bind(
+                        heightProperty()
+                                .subtract(top.heightProperty())
+                                .subtract(bottom.heightProperty())
+                );
+                left.prefWidthProperty().bind(
+                        widthProperty()
+                                .divide(3)
+                );
+                right.prefWidthProperty().bind(
+                        widthProperty()
+                                .divide(3)
+                                .multiply(2)
+                );
+                initialized = true;
+            }
         }
     }
     ```
