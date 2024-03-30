@@ -1,6 +1,6 @@
 ---
 title: Docker常用镜像启动脚本
-date: 2024/03/29
+date: 2024/3/29
 tags:
  - Docker
 categories:
