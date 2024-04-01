@@ -14,7 +14,7 @@ export default defineUserConfig({
         style: "@vuepress-reco/style-default",
         author: "reine-ishyanami",
         authorAvatar: "https://avatars.githubusercontent.com/u/46278371?v=4",
-        docsRepo: "https://github.com/reine-ishyanami/article",
+        docsRepo: "https://github.com/reine-ishyanami/reine-ishyanami.github.io",
         docsBranch: "master",
         lastUpdatedText: "",
         navbar: [
