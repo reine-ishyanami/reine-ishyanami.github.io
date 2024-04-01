@@ -5,7 +5,7 @@ tags:
  - SpringBoot
  - JavaFX
 categories:
- - java
+ - dev
 ---
 
 # SpringBoot整合JavaFX

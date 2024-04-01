@@ -4,7 +4,7 @@ date: 2023/10/18
 tags:
  - Git
 categories:
- - mix
+ - ops
 ---
 
 # Git只克隆仓库中的一个目录

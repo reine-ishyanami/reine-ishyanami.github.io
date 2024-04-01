@@ -4,7 +4,7 @@ date: 2023/7/24
 tags:
  - Python
 categories:
- - mix
+ - dev
 ---
 
 # Python应用打包发布

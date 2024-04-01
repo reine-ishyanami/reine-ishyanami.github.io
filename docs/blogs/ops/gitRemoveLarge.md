@@ -4,7 +4,7 @@ date: 2023/10/17
 tags:
  - Git
 categories:
- - mix
+ - ops
 ---
 
 # Git删除提交记录中的大文件

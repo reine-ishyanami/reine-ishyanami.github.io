@@ -2,9 +2,9 @@
 title: Apache Bench接口压测工具的使用
 date: 2024/3/30
 tags:
-  - Cmd
+  - Console
 categories:
-  - mix
+  - ops
 ---
 
 # Apache Bench接口压测工具的使用

@@ -4,7 +4,7 @@ date: 2024/3/29
 tags:
  - Docker
 categories:
- - mix
+ - ops
 ---
 
 # Docker常用镜像启动脚本

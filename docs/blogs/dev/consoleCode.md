@@ -2,9 +2,9 @@
 title: Windows控制台颜色编码
 date: 2023/7/19
 tags:
- - Cmd
+ - Console
 categories:
- - mix
+ - dev
 ---
 
 # Windows控制台颜色编码

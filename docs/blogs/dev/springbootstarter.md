@@ -4,7 +4,7 @@ date: 2023/10/15
 tags:
  - SpringBoot
 categories:
- - java
+ - dev
 ---
 
 # SpringBootStarter的构建

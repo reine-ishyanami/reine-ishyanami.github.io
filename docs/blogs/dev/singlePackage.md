@@ -5,7 +5,7 @@ tags:
  - JavaFX
  - SpringBoot
 categories:
- - java
+ - dev
 ---
 
 # Java项目打包成可执行jar文件

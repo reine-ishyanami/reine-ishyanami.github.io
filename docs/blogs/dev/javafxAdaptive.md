@@ -4,7 +4,7 @@ date: 2023/1/18
 tags:
  - JavaFX
 categories:
- - java
+ - dev
 ---
 
 # JavaFX 组件自适应宽高

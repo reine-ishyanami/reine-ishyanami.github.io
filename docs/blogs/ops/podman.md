@@ -4,7 +4,7 @@ date: 2023/11/22
 tags:
  - Podman
 categories:
- - mix
+ - ops
 ---
 
 # Podman进阶使用

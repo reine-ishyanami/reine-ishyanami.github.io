@@ -4,7 +4,7 @@ date: 2023/10/29
 tags:
  - JavaFX
 categories:
- - java
+ - dev
 ---
 
 # JavaFX项目构建为可执行文件

@@ -4,7 +4,7 @@ date: 2023/1/16
 tags:
  - SpringBoot
 categories:
- - java
+ - dev
 ---
 
 # Gradle 多模块项目构建

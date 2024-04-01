@@ -5,7 +5,7 @@ tags:
  - SpringBoot
  - Redis
 categories:
- - java
+ - dev
 ---
 
 # SpringBoot中使用Redis Stream数据类型实现消息队列

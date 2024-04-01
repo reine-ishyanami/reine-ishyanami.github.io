@@ -4,7 +4,7 @@ date: 2023/11/10
 tags:
  - JavaFX
 categories:
- - java
+ - dev
 ---
 
 # 几种常用的JavaFX组件库或样式

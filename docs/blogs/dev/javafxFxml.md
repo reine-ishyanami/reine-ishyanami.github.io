@@ -4,7 +4,7 @@ date: 2023/8/6
 tags:
  - JavaFX
 categories:
- - java
+ - dev
 ---
 
 # JavaFX Fxml使用说明

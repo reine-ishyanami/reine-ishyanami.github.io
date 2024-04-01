@@ -4,7 +4,7 @@ date: 2023/7/22
 tags:
  - MySQL
 categories:
- - mix
+ - ops
 ---
 
 # MySQL开窗函数

@@ -5,7 +5,7 @@ tags:
  - JavaFX
  - SpringBoot
 categories:
- - java
+ - dev
 ---
 
 # GraalVM native-image编译

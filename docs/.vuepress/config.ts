@@ -19,8 +19,8 @@ export default defineUserConfig({
         lastUpdatedText: "",
         navbar: [
             { text: "Home", link: "/" },
-            { text: "Categories", link: "/categories/java/1/" },
-            { text: "Tags", link: "/tags/Java/1/" }
+            { text: "Categories", link: "/categories/dev/1/" },
+            { text: "Tags", link: "/tags/Console/1/" }
         ]
     }),
 })

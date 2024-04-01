@@ -4,7 +4,7 @@ date: 2023/12/5
 tags:
  - Java
 categories:
- - java
+ - dev
 ---
 
 # 使用Javassist做字节码处理
