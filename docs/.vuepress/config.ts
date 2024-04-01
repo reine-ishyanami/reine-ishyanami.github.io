@@ -6,7 +6,7 @@ export default defineUserConfig({
     lang: "zh-CN",
     title: "reine's blog",
     description: "VuePress Blog, 记录编程技巧",
-    base: "/article/",
+    base: "/",
     host: "0.0.0.0",
     port: 8080,
     head: [["link", { rel: "icon", href: "https://avatars.githubusercontent.com/u/46278371?v=4" }]],
