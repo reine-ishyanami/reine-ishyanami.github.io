@@ -18,12 +18,25 @@ categories:
 ```shell
 docker run \
   -d \
- --name mysql \
- -p 3306:3306 \  # MySQL端口
- -v ~/mysql/data:/var/lib/mysql \  # 挂载数据目录
- -v ~/mysql/conf:/etc/mysql/conf.d \  # 挂载配置文件目录
- -e MYSQL_ROOT_PASSWORD=123456 \
- docker.io/mysql:tag  
+  --name mysql \
+  -p 3306:3306 \  # MySQL端口
+  -v ~/mysql/data:/var/lib/mysql \  # 挂载数据目录
+  -v ~/mysql/conf:/etc/mysql/conf.d \  # 挂载配置文件目录
+  -e MYSQL_ROOT_PASSWORD=123456 \
+  mysql:tag
+```
+
+### podman启动
+
+```shell
+podman run \
+  -d \
+  --name mysql \
+  -p 3306:3306 \  # MySQL端口
+  -v ~/mysql/data:/var/lib/mysql \  # 挂载数据目录
+  -v ~/mysql/conf:/etc/mysql/conf.d \  # 挂载配置文件目录
+  -e MYSQL_ROOT_PASSWORD=123456 \
+  docker.io/mysql:tag
 ```
 
 ### docker compose启动
@@ -52,6 +65,18 @@ services:
 
 ```shell
 docker run \
+  -d \
+  --name redis \
+  -p 6379:6379 \  # Redis端口
+  -v ~/redis/data:/data \  # 挂载数据目录
+  -v ~/redis/conf:/usr/local/etc/redis \  # 挂载配置文件目录
+  redis:tag
+```
+
+### podman启动
+
+```shell
+podman run \
   -d \
   --name redis \
   -p 6379:6379 \  # Redis端口
@@ -88,6 +113,19 @@ docker run \
   -p 8001:8001 \  # RedisInsight WebUI访问端口
   -v ~/redis/data:/data \  # 挂载数据目录
   -v ~/redis/conf:/usr/local/etc/redis \  # 挂载配置文件目录
+  redis/redis-stack:tag
+```
+
+### podman启动
+
+```shell
+podman run \
+  -d \
+  --name redis-stack \
+  -p 6379:6379 \  # Redis端口
+  -p 8001:8001 \  # RedisInsight WebUI访问端口
+  -v ~/redis/data:/data \  # 挂载数据目录
+  -v ~/redis/conf:/usr/local/etc/redis \  # 挂载配置文件目录
   docker.io/redis/redis-stack:tag
 ```
 
@@ -116,6 +154,18 @@ services:
 
 ```shell
 docker run \
+  -d \
+  --name rabbitmq \
+  -p 5672:5672 \  # RabbitMQ端口
+  -p 15672:15672 \  # RabbitMQ WebUI访问端口
+  -v ~/rabbitmq/data:/var/lib/rabbitmq \  # 挂载数据目录
+  rabbitmq:tag
+```
+
+### podman启动
+
+```shell
+podman run \
   -d \
   --name rabbitmq \
   -p 5672:5672 \  # RabbitMQ端口
