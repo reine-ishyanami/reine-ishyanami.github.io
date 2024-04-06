@@ -58,6 +58,56 @@ services:
       - ~/mysql/conf:/etc/mysql/conf.d
 ```
 
+## PostgreSQL
+
+### docker启动
+
+```shell
+docker run \
+  -d \
+  --name postgres \
+  -p 5432:5432 \  # PostgreSQL端口
+  -v ~/postgres/data:/var/lib/postgresql/data \  # 挂载数据目录 
+  -e POSTGRES_PASSWORD=123456 \  # 容器密码 
+  postgres:tag
+```
+
+### podman启动
+
+```shell
+podman run \
+  -d \
+  --name postgres \
+  -p 5432:5432 \  # PostgreSQL端口
+  -v ~/postgres/data:/var/lib/postgresql/data \  # 挂载数据目录
+  -e POSTGRES_PASSWORD=123456 \  # 容器密码 
+  docker.io/postgres:tag
+```
+
+### docker compose启动
+
+```yaml
+version: '3'
+services:
+  postgres:
+    image: docker.io/postgres:tag
+    container_name: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ~/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=123456
+```
+
+### 可用环境变量
+
+- POSTGRES_USER: 创建数据库用户名（缺省postgres）
+- POSTGRES_PASSWORD: 创建数据库密码（必须）
+- POSTGRES_DB: 创建数据库名（缺省变量POSTGRES_USER值）
+- POSTGRES_INITDB_ARGS: 传递给initdb的参数（缺省）
+- PGDATA: 数据目录（缺省/var/lib/postgresql/data）
 
 ## Redis
 
@@ -145,6 +195,94 @@ services:
       - ~/redis/data:/data
       - ~/redis/conf:/usr/local/etc/redis
 ```
+
+## MongoDB
+
+### docker启动
+
+```shell
+docker run \
+  -d \
+  --name mongodb \
+  -p 27017:27017 \  # MongoDB端口
+  -v ~/mongodb/data:/data/db \  # 挂载数据目录
+  -v ~/mongodb/conf:/etc/mongod.conf \  # 挂载配置文件目录
+  mongo:tag
+```
+
+### podman启动
+
+```shell
+podman run \
+  -d \
+  --name mongodb \
+  -p 27017:27017 \  # MongoDB端口
+  -v ~/mongodb/data:/data/db \  # 挂载数据目录
+  -v ~/mongodb/conf:/etc/mongod.conf \  # 挂载配置文件目录
+  docker.io/mongo:tag
+```
+
+### docker compose启动
+
+```yaml
+version: '3'
+services:
+  mongodb:
+    image: docker.io/mongo:tag
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ~/mongodb/data:/data/db
+      - ~/mongodb/conf:/etc/mongod.conf
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin  # 登录用户名
+      - MONGO_INITDB_ROOT_PASSWORD=admin  # 登录密码
+```
+
+## elasticsearch
+
+### docker启动
+
+```shell
+docker run \
+  -d \
+  --name elasticsearch \
+  -p 9200:9200 \  # Elasticsearch端口
+  -p 9300:9300 \  # Elasticsearch端口
+  -e "discovery.type=single-node" \  # 单节点模式
+  elasticsearch:tag
+```
+
+### podman启动
+
+```shell
+podman run \
+  -d \
+  --name elasticsearch \
+  -p 9200:9200 \  # Elasticsearch端口
+  -p 9300:9300 \  # Elasticsearch端口
+  -e "discovery.type=single-node" \  # 单节点模式
+  docker.io/elasticsearch:tag
+```
+
+### docker compose启动
+
+```shell
+version: '3'
+services:
+  elasticsearch:
+    image: docker.io/elasticsearch:tag
+    container_name: elasticsearch
+    restart: always
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "discovery.type=single-node"
+```
+
 
 ## RabbitMQ
 
