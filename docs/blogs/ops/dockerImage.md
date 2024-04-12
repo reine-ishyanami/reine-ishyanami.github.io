@@ -13,15 +13,19 @@ categories:
 
 ## MySQL
 
+- 默认端口：3306
+- 默认数据目录：/var/lib/mysql
+- 默认配置文件目录：/etc/mysql/conf.d
+
 ### docker启动
 
 ```shell
 docker run \
   -d \
   --name mysql \
-  -p 3306:3306 \  # MySQL端口
-  -v ~/mysql/data:/var/lib/mysql \  # 挂载数据目录
-  -v ~/mysql/conf:/etc/mysql/conf.d \  # 挂载配置文件目录
+  -p 3306:3306 \
+  -v ~/mysql/data:/var/lib/mysql \
+  -v ~/mysql/conf:/etc/mysql/conf.d \
   -e MYSQL_ROOT_PASSWORD=123456 \
   mysql:tag
 ```
@@ -32,9 +36,9 @@ docker run \
 podman run \
   -d \
   --name mysql \
-  -p 3306:3306 \  # MySQL端口
-  -v ~/mysql/data:/var/lib/mysql \  # 挂载数据目录
-  -v ~/mysql/conf:/etc/mysql/conf.d \  # 挂载配置文件目录
+  -p 3306:3306 \
+  -v ~/mysql/data:/var/lib/mysql \
+  -v ~/mysql/conf:/etc/mysql/conf.d \
   -e MYSQL_ROOT_PASSWORD=123456 \
   docker.io/mysql:tag
 ```
@@ -60,15 +64,19 @@ services:
 
 ## PostgreSQL
 
+- 默认端口：5432
+- 默认数据目录：/var/lib/postgresql/data
+- 配置容器密码：POSTGRES_PASSWORD=123456
+
 ### docker启动
 
 ```shell
 docker run \
   -d \
   --name postgres \
-  -p 5432:5432 \  # PostgreSQL端口
-  -v ~/postgres/data:/var/lib/postgresql/data \  # 挂载数据目录 
-  -e POSTGRES_PASSWORD=123456 \  # 容器密码 
+  -p 5432:5432 \
+  -v ~/postgres/data:/var/lib/postgresql/data \
+  -e POSTGRES_PASSWORD=123456 \
   postgres:tag
 ```
 
@@ -78,9 +86,9 @@ docker run \
 podman run \
   -d \
   --name postgres \
-  -p 5432:5432 \  # PostgreSQL端口
-  -v ~/postgres/data:/var/lib/postgresql/data \  # 挂载数据目录
-  -e POSTGRES_PASSWORD=123456 \  # 容器密码 
+  -p 5432:5432 \
+  -v ~/postgres/data:/var/lib/postgresql/data \
+  -e POSTGRES_PASSWORD=123456 \
   docker.io/postgres:tag
 ```
 
@@ -111,15 +119,19 @@ services:
 
 ## Redis
 
+- 默认端口：6379
+- 默认数据目录：/data
+- 默认配置文件目录：/usr/local/etc/redis
+
 ### docker启动
 
 ```shell
 docker run \
   -d \
   --name redis \
-  -p 6379:6379 \  # Redis端口
-  -v ~/redis/data:/data \  # 挂载数据目录
-  -v ~/redis/conf:/usr/local/etc/redis \  # 挂载配置文件目录
+  -p 6379:6379 \
+  -v ~/redis/data:/data \
+  -v ~/redis/conf:/usr/local/etc/redis \
   redis:tag
 ```
 
@@ -129,9 +141,9 @@ docker run \
 podman run \
   -d \
   --name redis \
-  -p 6379:6379 \  # Redis端口
-  -v ~/redis/data:/data \  # 挂载数据目录
-  -v ~/redis/conf:/usr/local/etc/redis \  # 挂载配置文件目录
+  -p 6379:6379 \
+  -v ~/redis/data:/data \
+  -v ~/redis/conf:/usr/local/etc/redis \
   docker.io/redis:tag
 ```
 
@@ -153,16 +165,21 @@ services:
 
 ## RedisStack
 
+- 默认端口：6379
+- 默认数据目录：/data
+- 默认配置文件目录：/usr/local/etc/redis
+- 默认WebUI访问端口：8001
+
 ### docker启动
 
 ```shell
 docker run \
   -d \
   --name redis-stack \
-  -p 6379:6379 \  # Redis端口
-  -p 8001:8001 \  # RedisInsight WebUI访问端口
-  -v ~/redis/data:/data \  # 挂载数据目录
-  -v ~/redis/conf:/usr/local/etc/redis \  # 挂载配置文件目录
+  -p 6379:6379 \
+  -p 8001:8001 \
+  -v ~/redis/data:/data \
+  -v ~/redis/conf:/usr/local/etc/redis \
   redis/redis-stack:tag
 ```
 
@@ -172,10 +189,10 @@ docker run \
 podman run \
   -d \
   --name redis-stack \
-  -p 6379:6379 \  # Redis端口
-  -p 8001:8001 \  # RedisInsight WebUI访问端口
-  -v ~/redis/data:/data \  # 挂载数据目录
-  -v ~/redis/conf:/usr/local/etc/redis \  # 挂载配置文件目录
+  -p 6379:6379 \
+  -p 8001:8001 \
+  -v ~/redis/data:/data \
+  -v ~/redis/conf:/usr/local/etc/redis \
   docker.io/redis/redis-stack:tag
 ```
 
@@ -198,15 +215,19 @@ services:
 
 ## MongoDB
 
+- 默认端口：27017
+- 默认数据目录：/data/db
+- 默认配置文件目录：/etc/mongod.conf
+
 ### docker启动
 
 ```shell
 docker run \
   -d \
   --name mongodb \
-  -p 27017:27017 \  # MongoDB端口
-  -v ~/mongodb/data:/data/db \  # 挂载数据目录
-  -v ~/mongodb/conf:/etc/mongod.conf \  # 挂载配置文件目录
+  -p 27017:27017 \
+  -v ~/mongodb/data:/data/db \
+  -v ~/mongodb/conf:/etc/mongod.conf \
   mongo:tag
 ```
 
@@ -216,9 +237,9 @@ docker run \
 podman run \
   -d \
   --name mongodb \
-  -p 27017:27017 \  # MongoDB端口
-  -v ~/mongodb/data:/data/db \  # 挂载数据目录
-  -v ~/mongodb/conf:/etc/mongod.conf \  # 挂载配置文件目录
+  -p 27017:27017 \
+  -v ~/mongodb/data:/data/db \
+  -v ~/mongodb/conf:/etc/mongod.conf \
   docker.io/mongo:tag
 ```
 
@@ -241,7 +262,10 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=admin  # 登录密码
 ```
 
-## elasticsearch
+## ElasticSearch
+
+- 默认端口：9200
+- 开启单节点模式："discovery.type=single-node"
 
 ### docker启动
 
@@ -249,9 +273,8 @@ services:
 docker run \
   -d \
   --name elasticsearch \
-  -p 9200:9200 \  # Elasticsearch端口
-  -p 9300:9300 \  # Elasticsearch端口
-  -e "discovery.type=single-node" \  # 单节点模式
+  -p 9200:9200 \
+  -e "discovery.type=single-node" \
   elasticsearch:tag
 ```
 
@@ -261,9 +284,8 @@ docker run \
 podman run \
   -d \
   --name elasticsearch \
-  -p 9200:9200 \  # Elasticsearch端口
-  -p 9300:9300 \  # Elasticsearch端口
-  -e "discovery.type=single-node" \  # 单节点模式
+  -p 9200:9200 \
+  -e "discovery.type=single-node" \
   docker.io/elasticsearch:tag
 ```
 
@@ -278,7 +300,6 @@ services:
     restart: always
     ports:
       - "9200:9200"
-      - "9300:9300"
     environment:
       - "discovery.type=single-node"
 ```
@@ -288,15 +309,19 @@ services:
 
 优选选择版本号带`-management`的版本，不需要在额外安装WebUI
 
+- 默认端口：5672
+- 默认WebUI访问端口：15672
+- 默认数据目录：/var/lib/rabbitmq
+
 ### docker启动
 
 ```shell
 docker run \
   -d \
   --name rabbitmq \
-  -p 5672:5672 \  # RabbitMQ端口
-  -p 15672:15672 \  # RabbitMQ WebUI访问端口
-  -v ~/rabbitmq/data:/var/lib/rabbitmq \  # 挂载数据目录
+  -p 5672:5672 \
+  -p 15672:15672 \
+  -v ~/rabbitmq/data:/var/lib/rabbitmq \
   rabbitmq:tag
 ```
 
@@ -306,9 +331,9 @@ docker run \
 podman run \
   -d \
   --name rabbitmq \
-  -p 5672:5672 \  # RabbitMQ端口
-  -p 15672:15672 \  # RabbitMQ WebUI访问端口
-  -v ~/rabbitmq/data:/var/lib/rabbitmq \  # 挂载数据目录
+  -p 5672:5672 \
+  -p 15672:15672 \
+  -v ~/rabbitmq/data:/var/lib/rabbitmq \
   docker.io/rabbitmq:tag
 ```
 
@@ -326,4 +351,56 @@ services:
       - "15672:15672"
     volumes:
       - ~/rabbitmq/data:/var/lib/rabbitmq
+```
+
+
+## MinIO
+
+- 默认端口：9000
+- 默认WebUI访问端口：9001
+- 默认数据目录：/data
+
+### docker启动
+
+```shell
+docker run \
+  -d \
+  --name minio \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  -v ~/minio/data:/data \
+  minio/minio:tag \
+  server /data \
+  --console-address ":9001"
+```
+
+### podman启动
+
+```shell
+podman run \
+  -d \
+  --name minio1 \
+  -p 9000:9000 \
+  -p 9001:9001 \
+  -v ~/minio/data:/data \
+  docker.io/minio/minio:tag \
+  server /data \
+  --console-address ":9001"
+```
+
+### docker compose启动
+
+```yaml
+version: '3'
+services:
+  minio:
+    image: docker.io/minio/minio:tag
+    container_name: minio
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ~/minio/data:/data
+    command: server /data --console-address ":9001"
 ```
