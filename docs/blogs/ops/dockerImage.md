@@ -2,9 +2,9 @@
 title: Docker常用镜像启动脚本
 date: 2024/3/29
 tags:
- - Docker
+  - Docker
 categories:
- - ops
+  - ops
 ---
 
 # Docker常用镜像启动脚本
@@ -304,7 +304,6 @@ services:
       - "discovery.type=single-node"
 ```
 
-
 ## RabbitMQ
 
 优选选择版本号带`-management`的版本，不需要在额外安装WebUI
@@ -352,7 +351,6 @@ services:
     volumes:
       - ~/rabbitmq/data:/var/lib/rabbitmq
 ```
-
 
 ## MinIO
 

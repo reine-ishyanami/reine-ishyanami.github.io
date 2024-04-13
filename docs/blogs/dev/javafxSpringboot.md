@@ -13,101 +13,102 @@ categories:
 
 1. 引入依赖
 
-    ```xml
-    <dependency>
-        <groupId>de.roskenet</groupId>
-        <artifactId>springboot-javafx-support</artifactId>
-        <version>2.1.6</version>
-    </dependency>
-    ```
+   ```xml
+   <dependency>
+     <groupId>de.roskenet</groupId>
+     <artifactId>springboot-javafx-support</artifactId>
+     <version>2.1.6</version>
+   </dependency>
+   ```
 
 2. 创建fxml文件，如`main.fxml`
 
-    ```xml
-    <!--导包已省略-->
-    <VBox xmlns="http://javafx.com/javafx"
-        xmlns:fx="http://javafx.com/fxml"
-        fx:controller="com.reine.testsbfxdemo.controller.Main"
-        prefHeight="400.0" prefWidth="600.0" alignment="CENTER">
-        <Text fx:id="text" text="Hello World"/>
-        <Button onAction="#modifyText" text="click me"/>
-    </VBox>
-    ```
+   ```xml
+   <!--导包已省略-->
+   <VBox xmlns="http://javafx.com/javafx"
+     xmlns:fx="http://javafx.com/fxml"
+     fx:controller="com.reine.testsbfxdemo.controller.Main"
+     prefHeight="400.0" prefWidth="600.0" alignment="CENTER">
+     <Text fx:id="text" text="Hello World"/>
+     <Button onAction="#modifyText" text="click me"/>
+   </VBox>
+   ```
 
 3. 创建对应控制器`Main.java`，并将其定义为视图类
 
-    ```java
-    @FXMLController
-    @FXMLView("main.fxml")
-    public class Main {
-
-        @FXML
-        private Text text;
-
-        @Value("${test.property}")
-        private String property;
-
-        @FXML
-        void modifyText(ActionEvent actionEvent) {
-            // 打开第二个窗口
-            // App.showView(Second.class);  // 不给模态直接替换场景
-            App.showView(Second.class, Modality.WINDOW_MODAL);  // 有模态参数则直接开启新窗口
-        }
-
-        @FXML
-        void initialize(){
-            // 验证属性注入是否成功
-            System.out.println(property);
-        }
-    }
-    ```
+   ```java
+   @FXMLController
+   @FXMLView("main.fxml")
+   public class Main {
+   
+     @FXML
+     private Text text;
+   
+     @Value("${test.property}")
+     private String property;
+   
+     @FXML
+     void modifyText(ActionEvent actionEvent) {
+         // 打开第二个窗口
+         // App.showView(Second.class);  // 不给模态直接替换场景
+         App.showView(Second.class, Modality.WINDOW_MODAL);  // 有模态参数则直接开启新窗口
+     }
+   
+     @FXML
+     void initialize(){
+         // 验证属性注入是否成功
+         System.out.println(property);
+     }
+   }
+   ```
 
 4. 第二个窗口
 
-    ```java
-    @FXMLController
-    // second.fxml与main.fxml布局一样
-    @FXMLView(value = "second.fxml", css = "second.css", title = "第二个窗口", stageStyle = "DECORATED")
-    public class Second extends AbstractFxmlView {
-
-        @FXML
-        private Text text;
-
-        @Value("${test.property}")
-        private String property;
-
-        @FXML
-        void modifyText(ActionEvent actionEvent) {
-            text.setText(property);
-        }
-    }
-    ```
+   ```java
+   @FXMLController
+   // second.fxml与main.fxml布局一样
+   @FXMLView(value = "second.fxml", css = "second.css", title = "第二个窗口", stageStyle = "DECORATED")
+   public class Second extends AbstractFxmlView {
+   
+     @FXML
+     private Text text;
+   
+     @Value("${test.property}")
+     private String property;
+   
+     @FXML
+     void modifyText(ActionEvent actionEvent) {
+         text.setText(property);
+     }
+   }
+   ```
 
 5. 启动类
 
-    ```java
-    @SpringBootApplication
-    public class App extends AbstractJavaFxApplicationSupport {
-
-        public static void main(String[] args) {
-            launch(App.class, Main.class, new SplashScreen() {
-                /**
-                * 重写闪屏，关闭启动时的加载图
-                */
-                @Override
-                public boolean visible() {
-                    return false;
-                }
-            }, args);
-
-            // 默认启动方式
-            // launch(App.class, Main.class, args);
-        }
-
-    }
-    ```
+   ```java
+   @SpringBootApplication
+   public class App extends AbstractJavaFxApplicationSupport {
+   
+     public static void main(String[] args) {
+         launch(App.class, Main.class, new SplashScreen() {
+             /**
+             * 重写闪屏，关闭启动时的加载图
+             */
+             @Override
+             public boolean visible() {
+                 return false;
+             }
+         }, args);
+   
+         // 默认启动方式
+         // launch(App.class, Main.class, args);
+     }
+   
+   }
+   ```
 
 6. 有闪屏时的启动效果
+
     ![starting](../assets/javafxSpringboot_01.png)
 
 7. 启动完成后效果
@@ -117,130 +118,135 @@ categories:
     ![Second](../assets/javafxSpringboot_03.png)
 
 8. 配置文件参数
-    ```yml
-    javafx:
-      stage:
-        style: # 主窗口样式 DECORATED UNDECORATED TRANSPARENT UTILITY UNIFIED
-        width: # 主窗口宽度
-        height: # 主窗口高度
-        resizable: # 主窗口是否可以调整大小 true false
-      appicons: # 主窗口的图标, 例如/images/logo.png可以读取到resources下的images目录下的logo.png
-      title: # 主窗口的标题    
-    ```
+   ```yml
+   javafx:
+   stage:
+     style: # 主窗口样式 DECORATED UNDECORATED TRANSPARENT UTILITY UNIFIED
+     width: # 主窗口宽度
+     height: # 主窗口高度
+     resizable: # 主窗口是否可以调整大小 true false
+   appicons: # 主窗口的图标, 例如/images/logo.png可以读取到resources下的images目录下的logo.png
+   title: # 主窗口的标题    
+   ```
 
 
 ## 第二种方案，通过SpringBoot的事件发布订阅机制（oracle jdk8）
 
 1. 创建fxml文件，如`main.fxml`
-    ```xml
-    <!--导包已省略-->
-    <VBox xmlns="http://javafx.com/javafx"
-        xmlns:fx="http://javafx.com/fxml"
-        fx:controller="com.reine.testsbfxdemo.controller.Main"
-        prefHeight="400.0" prefWidth="600.0" alignment="CENTER">
-        <Text fx:id="text" text="Hello World"/>
-        <Button onAction="#modifyText" text="click me"/>
-    </VBox>
-    ```
+
+   ```xml
+   <!--导包已省略-->
+   <VBox xmlns="http://javafx.com/javafx"
+     xmlns:fx="http://javafx.com/fxml"
+     fx:controller="com.reine.testsbfxdemo.controller.Main"
+     prefHeight="400.0" prefWidth="600.0" alignment="CENTER">
+     <Text fx:id="text" text="Hello World"/>
+     <Button onAction="#modifyText" text="click me"/>
+   </VBox>
+   ```
 
 2. 创建对应控制器`Main.java`
-    ```java
-    @Component
-    public class Main {
 
-        @FXML
-        private Text text;
-
-        @Value("${test.property}")
-        private String property;
-
-        @FXML
-        void modifyText(ActionEvent actionEvent) {
-            text.setText(property);
-        }
-    }
-    ```
+   ```java
+   @Component
+   public class Main {
+   
+     @FXML
+     private Text text;
+   
+     @Value("${test.property}")
+     private String property;
+   
+     @FXML
+     void modifyText(ActionEvent actionEvent) {
+         text.setText(property);
+     }
+   }
+   ```
 
 3. 要进行发布的事件`StageReadyEvent`
-    ```java
-    public class StageReadyEvent extends ApplicationEvent {
-        /**
-         * 这里的形参也可以是一个更加复杂的对象；
-         * 比如用一个新的对象将stage、fxml、title等需要自定义的参数封装成一个对象，
-         * 再通过getSource()返回这整个对象以供给监听器使用；
-         * 这里为了简单演示，只传递了stage对象
-         */
-        public StageReadyEvent(Stage stage) {
-            super(stage);
-        }
 
-        public Stage getStage() {
-            return (Stage) getSource();
-        }
-    } 
-    ```
+   ```java
+   public class StageReadyEvent extends ApplicationEvent {
+     /**
+      * 这里的形参也可以是一个更加复杂的对象；
+      * 比如用一个新的对象将stage、fxml、title等需要自定义的参数封装成一个对象，
+      * 再通过getSource()返回这整个对象以供给监听器使用；
+      * 这里为了简单演示，只传递了stage对象
+      */
+     public StageReadyEvent(Stage stage) {
+         super(stage);
+     }
+   
+     public Stage getStage() {
+         return (Stage) getSource();
+     }
+   } 
+   ```
 
 4. 对应的事件监听者`StageInitializer`
-    ```java
-    @Component
-    @RequiredArgsConstructor
-    public class StageInitializer implements ApplicationListener<StageReadyEvent> {
 
-        /**
-         * 这个属性也可以通过event进行传递
-         */
-        @Value("classpath:/main.fxml")
-        private Resource defaultFxml;
-
-        private final ApplicationContext applicationContext;
-
-        @Override
-        public void onApplicationEvent(StageReadyEvent event) {
-            try {
-                FXMLLoader loader = new FXMLLoader(defaultFxml.getURL());
-                // 让fxml从springbean中拿到交由spring管理的controller；
-                // 否则则controller中将无法使用spring的依赖注入
-                loader.setControllerFactory(applicationContext::getBean);
-                Parent root = loader.load();
-                // 从事件中拿到stage对象
-                Stage stage = event.getStage();
-                stage.setScene(new Scene(root));
-                stage.show();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }    
-    ```
+   ```java
+   @Component
+   @RequiredArgsConstructor
+   public class StageInitializer implements ApplicationListener<StageReadyEvent> {
+   
+     /**
+      * 这个属性也可以通过event进行传递
+      */
+     @Value("classpath:/main.fxml")
+     private Resource defaultFxml;
+   
+     private final ApplicationContext applicationContext;
+   
+     @Override
+     public void onApplicationEvent(StageReadyEvent event) {
+         try {
+             FXMLLoader loader = new FXMLLoader(defaultFxml.getURL());
+             // 让fxml从springbean中拿到交由spring管理的controller；
+             // 否则则controller中将无法使用spring的依赖注入
+             loader.setControllerFactory(applicationContext::getBean);
+             Parent root = loader.load();
+             // 从事件中拿到stage对象
+             Stage stage = event.getStage();
+             stage.setScene(new Scene(root));
+             stage.show();
+         } catch (IOException e) {
+             throw new RuntimeException(e);
+         }
+     }
+   }    
+   ```
 
 5. 启动类
-    ```java
-    @SpringBootApplication
-    public class TestSbFxDemoApplication extends Application {
-        private ConfigurableApplicationContext applicationContext;
 
-        public static void main(String[] args) {
-            launch(args);
-        }
-
-        @Override
-        public void start(Stage primaryStage) throws Exception {
-            // 发布事件，引导监听器工作
-            applicationContext.publishEvent(new StageReadyEvent(primaryStage));
-        }
-
-        @Override
-        public void init() throws Exception {
-            applicationContext = new SpringApplicationBuilder(TestSbFxDemoApplication.class).run();
-        }
-
-        @Override
-        public void stop() throws Exception {
-            applicationContext.close();
-            Platform.exit();
-        }
-    }    
-    ```
+   ```java
+   @SpringBootApplication
+   public class TestSbFxDemoApplication extends Application {
+     private ConfigurableApplicationContext applicationContext;
+   
+     public static void main(String[] args) {
+         launch(args);
+     }
+   
+     @Override
+     public void start(Stage primaryStage) throws Exception {
+         // 发布事件，引导监听器工作
+         applicationContext.publishEvent(new StageReadyEvent(primaryStage));
+     }
+   
+     @Override
+     public void init() throws Exception {
+         applicationContext = new SpringApplicationBuilder(TestSbFxDemoApplication.class).run();
+     }
+   
+     @Override
+     public void stop() throws Exception {
+         applicationContext.close();
+         Platform.exit();
+     }
+   }    
+   ```
 
 6. 启动时不会像上一种方式有加载动画，而是启动完成后直接展示窗口
 
