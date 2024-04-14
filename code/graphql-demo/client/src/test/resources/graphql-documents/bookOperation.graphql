@@ -1,0 +1,28 @@
+
+mutation bookOperations($id: ID, $name: String, $pageCount: Int, $authorId: ID){
+    createBook(name: $name, pageCount: $pageCount, authorId: $authorId){
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+
+    updateBook(id: $id, name: $name, pageCount: $pageCount, authorId: $authorId){
+        id
+        name
+        pageCount
+        author {
+            id
+            firstName
+            lastName
+        }
+    }
+
+    deleteBook(id: $id){
+        id
+    }
+}

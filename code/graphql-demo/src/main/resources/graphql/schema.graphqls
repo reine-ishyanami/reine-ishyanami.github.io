@@ -1,0 +1,23 @@
+type Query {
+    hello: String  # 简易接口
+    bookById(id: ID): Book  # 查询指定id的book
+}
+
+type Mutation {
+    createBook(name: String, pageCount: Int, authorId: ID): Book  # 创建book
+    updateBook(id: ID, name: String, pageCount: Int, authorId: ID): Book  # 更新book
+    deleteBook(id: ID): Book  # 删除book
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type Author {
+    id: ID
+    firstName: String
+    lastName: String
+}
