@@ -13,7 +13,7 @@ categories:
 2. 安装build（建议在虚拟环境中安装）
 
    ```shell
-   sourc.venv/bin/activate
+   source .venv/bin/activate
    pip install build
    ```
 
@@ -37,7 +37,7 @@ categories:
    └── tests/
    ```
 
-5. 选中开源协议，将协议内容填到LICENSE文件中[choosealicense](https://choosealicense.com/)
+5. 选择开源协议，将协议内容填到LICENSE文件中[choosealicense](https://choosealicense.com/)
 
 6. 编写`pyproject.toml`项目配置文件
 
@@ -51,7 +51,7 @@ categories:
    description = "XXX"
    readme = "README.md"
    license = { text = "XXX" }
-   requires-python = ">=3.10, <4.0"
+   requires-python = ">=3.10, <4.0"  # 项目支持的python版本
    dependencies = [
      # 填写项目依赖信息
    ]
