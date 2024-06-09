@@ -1,0 +1,37 @@
+import{_ as i,r as l,o as r,c,a,b as e,d as t,e as n}from"./app-410d86ed.js";const p={},o=n(`<h1 id="git删除提交记录中的大文件" tabindex="-1"><a class="header-anchor" href="#git删除提交记录中的大文件" aria-hidden="true">#</a> Git删除提交记录中的大文件</h1><blockquote><p>背景：不小心在代码库中提交了一个大型文件，如视频，音频等，导致代码库体积过大，影响代码库的下载以及维护</p></blockquote><h2 id="可以分为一下几种情况进行讨论" tabindex="-1"><a class="header-anchor" href="#可以分为一下几种情况进行讨论" aria-hidden="true">#</a> 可以分为一下几种情况进行讨论</h2><h3 id="_1-在将文件add后及时发现-已添加" tabindex="-1"><a class="header-anchor" href="#_1-在将文件add后及时发现-已添加" aria-hidden="true">#</a> 1. 在将文件add后及时发现（已添加）</h3><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 将暂存区的文件删除</span>
+<span class="token function">git</span> <span class="token function">rm</span> <span class="token parameter variable">--cached</span> 文件名
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-在将文件add后未及时发现并进行了提交-已提交" tabindex="-1"><a class="header-anchor" href="#_2-在将文件add后未及时发现并进行了提交-已提交" aria-hidden="true">#</a> 2. 在将文件add后未及时发现并进行了提交（已提交）</h3><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># reset 回退到上一次提交</span>
+<span class="token function">git</span> reset HEAD^
+<span class="token comment"># 垃圾回收</span>
+<span class="token function">git</span> gc
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-在提交完后推送到了远端仓库-已推送" tabindex="-1"><a class="header-anchor" href="#_3-在提交完后推送到了远端仓库-已推送" aria-hidden="true">#</a> 3. 在提交完后推送到了远端仓库（已推送）</h3>`,8),d={href:"https://github.com/newren/git-filter-repo",target:"_blank",rel:"noopener noreferrer"},m=n(`<div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 删除本地提交记录与重写提交历史</span>
+<span class="token function">git</span> gc
+<span class="token comment"># 下面命令为第三方命令，需要点击上方链接额外下载</span>
+<span class="token function">git</span> filter-repo --path-glob 文件名 --invert-paths <span class="token parameter variable">--force</span>
+<span class="token function">git</span> gc <span class="token parameter variable">--aggressive</span>
+<span class="token comment"># 强制推送到远端</span>
+<span class="token function">git</span> remote <span class="token function">add</span> origin git@github.com:username/repository.git
+<span class="token function">git</span> push <span class="token parameter variable">--all</span> <span class="token parameter variable">--force</span>
+<span class="token function">git</span> push <span class="token parameter variable">--tags</span> <span class="token parameter variable">--force</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-他人推送大文件到远端仓库-已推送" tabindex="-1"><a class="header-anchor" href="#_4-他人推送大文件到远端仓库-已推送" aria-hidden="true">#</a> 4. 他人推送大文件到远端仓库（已推送）</h3>`,2),v={href:"https://github.com/ticktechman/git-commands",target:"_blank",rel:"noopener noreferrer"},b=n(`<div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token comment"># 找出仓库中的前10大文件</span>
+<span class="token function">git</span> gc
+<span class="token function">git</span> rev-list <span class="token parameter variable">--objects</span> <span class="token parameter variable">--all</span> <span class="token variable"><span class="token variable">\`</span> <span class="token comment"># 列举仓库中的所有对象，包括(blob, tree, commit, tag) 如果是blob对象，输出结果会包含文件名</span>
+<span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-f</span> <span class="token variable">\`</span></span> <span class="token comment"># 过滤</span>
+<span class="token operator">&lt;</span><span class="token punctuation">(</span><span class="token function">git</span> verify-pack <span class="token parameter variable">-v</span> .git/objects/pack/*.idx <span class="token variable"><span class="token variable">\`</span> <span class="token comment"># 根据索引文件输出所有对象的ObjectID，对象类型，大小等信息</span>
+<span class="token operator">|</span> <span class="token function">grep</span> blob <span class="token variable">\`</span></span> <span class="token comment"># 过滤掉所有非blob对象</span>
+<span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-k</span> <span class="token number">3</span> <span class="token parameter variable">-n</span> <span class="token variable"><span class="token variable">\`</span> <span class="token comment"># 将输出结果以第三个字段（即大小）进行排序</span>
+<span class="token operator">|</span> <span class="token function">cut</span> <span class="token parameter variable">-f</span> <span class="token number">1</span> <span class="token parameter variable">-d</span> <span class="token string">&#39; &#39;</span> <span class="token variable">\`</span></span> <span class="token comment"># 按空格分割字段，取第一个字段（即ObjectID）</span>
+<span class="token operator">|</span> <span class="token function">tail</span> -10<span class="token punctuation">)</span> <span class="token comment"># 取尾部的10行数据</span>
+
+<span class="token comment"># 也可以使用下面一条命令替代上一条命令，需要点击上方链接额外下载</span>
+<span class="token function">git</span> largefiles <span class="token parameter variable">-t</span> <span class="token number">10</span> 
+
+<span class="token comment"># 删除文件与重写提交记录</span>
+<span class="token function">git</span> filter-repo --path-glob 文件名 --invert-paths <span class="token parameter variable">--force</span>
+<span class="token function">git</span> gc <span class="token parameter variable">--aggressive</span>
+<span class="token comment"># 强制推送到远端</span>
+<span class="token function">git</span> remote <span class="token function">add</span> origin git@github.com:username/repository.git
+<span class="token function">git</span> push <span class="token parameter variable">--all</span> <span class="token parameter variable">--force</span>
+<span class="token function">git</span> push <span class="token parameter variable">--tags</span> <span class="token parameter variable">--force</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,1);function u(k,h){const s=l("ExternalLinkIcon");return r(),c("div",null,[o,a("p",null,[a("a",d,[e("filter-repo"),t(s)])]),m,a("p",null,[a("a",v,[e("largefiles"),t(s)])]),b])}const f=i(p,[["render",u],["__file","gitRemoveLarge.html.vue"]]);export{f as default};
