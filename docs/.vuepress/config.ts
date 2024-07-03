@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress";
 import recoTheme from "vuepress-theme-reco";
+import { viteBundler } from "@vuepress/bundler-vite";
 
 
 export default defineUserConfig({
@@ -11,6 +12,7 @@ export default defineUserConfig({
     port: 8080,
     head: [["link", { rel: "icon", href: "https://avatars.githubusercontent.com/u/46278371?v=4" }]],
     theme: recoTheme({
+        docsDir: '/docs',
         style: "@vuepress-reco/style-default",
         author: "reine-ishyanami",
         repo: 'reine-ishyanami/article',
@@ -18,11 +20,10 @@ export default defineUserConfig({
         docsRepo: "https://github.com/reine-ishyanami/article",
         docsBranch: "master",
         lastUpdatedText: "",
-        navbar: [
-            { text: "Home", link: "/" },
-            { text: "Categories", link: "/categories/dev/1/" },
-            { text: "Tags", link: "/tags/Console/1/" }
-        ],
+        // 自动设置分类
+        autoSetBlogCategories: true,
+        // 当 autoAddCategoryToNavbar 为 true 时，则全部取默认值
+        autoAddCategoryToNavbar: true,
         bulletin: {
             body: [
                 {
@@ -32,5 +33,9 @@ export default defineUserConfig({
                 }
             ]
         }
-    })
+    }),
+    bundler: viteBundler({
+        viteOptions: {},
+        vuePluginOptions: {},
+    }),
 })
