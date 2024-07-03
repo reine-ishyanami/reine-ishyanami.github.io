@@ -17,19 +17,19 @@ categories:
 
 1. 更新软件源
 	
-	```bash
+	```shell
 	sudo apt update && sudo apt upgrade -y
 	```
  
 2. 安装 zsh，顺带把安装 oh-my-zsh 的 git, curl, wget 安装了
 	
-	```bash
+	```shell
 	sudo apt install zsh git curl wget -y
 	```
 
 3. 设置 zsh 为默认 shell
 
-   ```bash
+   ```shell
    chsh -s /bin/zsh
    ```
 
@@ -47,13 +47,13 @@ categories:
 
 2. 查看可用主题
 
-	```bash
+	```shell
 	cd ~/.oh-my-zsh/themes && ls
 	```
 
 3. 设置主题，修改 `~/.zshrc` 文件
 
-	```bash
+	```shell
  	...
  	ZSH_THEME="xxx"
  	...
@@ -70,7 +70,7 @@ categories:
 
 5. 配置插件
 
-	```bash
+	```shell
  	...
  	plugins=(git z zsh-autosuggestions zsh-syntax-highlighting)  # 想用啥配啥
  	...
