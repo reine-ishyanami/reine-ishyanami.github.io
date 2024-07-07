@@ -2,7 +2,7 @@
 title: Podman进阶使用
 date: 2023/11/22
 tags:
-  - Podman
+  - Linux
 categories:
   - ops
 ---
