@@ -1,5 +1,5 @@
 ---
-title: CompletableFuture使用
+title: CompletableFuture 使用
 date: 2024/5/6
 tags:
  - Java
@@ -9,7 +9,7 @@ categories:
 
 # CompletableFuture 使用
 
-> CompletableFuture主要是用于异步调用，内部封装了线程池，可以将请求或者处理过程，进行异步处理。创建线程有3种方式，直接继承Thread、实现Runnable接口、实现Callable接口。
+> CompletableFuture 主要是用于异步调用，内部封装了线程池，可以将请求或者处理过程，进行异步处理。创建线程有3种方式，直接继承 Thread、实现 Runnable 接口、实现 Callable 接口。
 
 ## CompletableFuture 与 Future 的区别
 
@@ -150,37 +150,37 @@ categories:
 	   CompletableFuture.supplyAsync(this::supplier, executor).thenApplyAsync(this::function, executor);
       ```
 
-	* runAfterBothAsync(CompletionStage future2, Runnable action) 顺序执行，执行顺序为future1，future2，task，即task在前面两个任务执行完成后执行
+	* runAfterBothAsync(CompletionStage future2, Runnable action) 顺序执行，执行顺序为 future1，future2，task，即 task 在前面两个任务执行完成后执行
 
 	   ```java
 	   future1.runAfterBothAsync(future2, this::runnable, executor);
       ```
 
-	* thenAcceptBothAsync(CompletionStage future2, BiConsumer consumer) 顺序执行，执行顺序为future1，future2，task，即task在前面两个任务执行完成后执行，并且task的参数为future1和future2的返回值
+	* thenAcceptBothAsync(CompletionStage future2, BiConsumer consumer) 顺序执行，执行顺序为 future1，future2，task，即 task 在前面两个任务执行完成后执行，并且 task 的参数为 future1 和 future2 的返回值
 
 	   ```java
 	   future1.thenAcceptBothAsync(future2, biConsumer, executor);
       ```
    
-	* thenCombineAsync(CompletionStage future2, BiFunction function) 顺序执行，执行顺序为future1，future2，task，即task在前面两个任务执行完成后执行，并且task的参数为future1和future2的返回值，返回一个新的返回结果
+	* thenCombineAsync(CompletionStage future2, BiFunction function) 顺序执行，执行顺序为 future1，future2，task，即 task 在前面两个任务执行完成后执行，并且 task 的参数为 future1 和 future2 的返回值，返回一个新的返回结果
    
 		```java
 		future1.thenCombineAsync(future2, biFunction, executor);
       ```
 
-	* runAfterEitherAsync(CompletionStage future2, Runnable runnable) 两个任务任意一个任务执行完成，执行task任务
+	* runAfterEitherAsync(CompletionStage future2, Runnable runnable) 两个任务任意一个任务执行完成，执行 task 任务
    
 		```java
 	   future1.runAfterEitherAsync(future2, runnable, executor);
 	   ```
   
-	* acceptEitherAsync(CompletionStage future2, Consumer consumer) 两个任务任意一个任务执行完成，执行task任务，将那个完成了的任务的返回值作为参数传递
+	* acceptEitherAsync(CompletionStage future2, Consumer consumer) 两个任务任意一个任务执行完成，执行 task 任务，将那个完成了的任务的返回值作为参数传递
    
 	   ```java
 	   future1.acceptEitherAsync(future2, consumer, executor);
 	   ```
    
-	* applyToEitherAsync(CompletionStage future2, Function function) 两个任务任意一个任务执行完成，执行task任务，将那个完成了的任务的返回值作为参数传递，返回一个新的返回结果
+	* applyToEitherAsync(CompletionStage future2, Function function) 两个任务任意一个任务执行完成，执行 task 任务，将那个完成了的任务的返回值作为参数传递，返回一个新的返回结果
    	
 		```java
 		future1.applyToEitherAsync(future2, task, executor);

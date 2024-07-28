@@ -1,5 +1,5 @@
 ---
-title: Java基于SpringBoot框架使用GraphQL风格API
+title: Java 基于 SpringBoot 框架使用 GraphQL 风格 API
 date: 2024/4/14
 tags:
  - SpringBoot
@@ -7,13 +7,13 @@ categories:
  - dev
 ---
 
-# Java基于SpringBoot框架使用GraphQL风格API
+# Java 基于 SpringBoot 框架使用 GraphQL 风格 API
 
-## GraphQL简介
+## GraphQL 简介
 
 GraphQL 是一种用于 API 的查询语言，它为您的 API 定义了一个明确的语言来准确地请求所需的字段和数据。使用 GraphQL，您可以准确地描述您的数据，并按需获取它。
 
-## 整合SpringBoot
+## 整合 SpringBoot
 
 ### 引入依赖
 
@@ -25,7 +25,7 @@ testImplementation 'org.springframework:spring-webflux'
 testImplementation 'org.springframework.graphql:spring-graphql-test'
 ```
 
-### 编写graphql配置
+### 编写 graphql 配置
 
 ```yaml
 spring:
@@ -116,7 +116,7 @@ public record Book(String id, String name, int pageCount, String authorId) {
 }
 ```
 
-### 编写GraphQL SDL （Schema Definition Language |schema定义语言）
+### 编写 GraphQL SDL （Schema Definition Language |schema定义语言）
 
 > 在 `src/main/resource/graphql` 目录下创建 `schema.graphqls` 文件，内容如下
 
@@ -191,7 +191,7 @@ public class BookController {
 
 ### 启动项目，测试
 
-> 下面要用到的graphql请求文件 `bookDetails.graphql` 和 `bookOperations.graphql`
+> 下面要用到的 graphql 请求文件 `bookDetails.graphql` 和 `bookOperations.graphql`
 
 ```graphql
 query bookDetails($id: ID) {
@@ -239,13 +239,13 @@ mutation bookOperations($id: ID, $name: String, $pageCount: Int, $authorId: ID){
 }
 ```
 
-#### 通过webUI进行测试
+#### 通过 webUI 进行测试
 
 通过 [http://localhost:8080/graphql](http://localhost:8080/graphql) 访问，可以看到如下页面，编写graphql查询语句
 
 ![javaGraphql_01](../assets/javaGraphql_01.png)
 
-#### 在同一个项目中的test模块中进行测试
+#### 在同一个项目中的 test 模块中进行测试
 
 > 需要将上面的 `bookDetails.graphql` 在 `src/test/resources/graphql-test` 目录下创建
 
@@ -287,7 +287,7 @@ public class BookControllerTests {
 }
 ```
 
-#### 使用另一个项目调用API接口
+#### 使用另一个项目调用 API 接口
 
 > 需要将上面的 `bookDetails.graphql` 在 `src/test/resources/graphql-documents` 目录下创建
 

@@ -1,5 +1,5 @@
 ---
-title: Docker常用镜像启动脚本
+title: Docker 常用镜像启动脚本
 date: 2024/3/29
 tags:
   - Docker
@@ -7,7 +7,7 @@ categories:
   - ops
 ---
 
-# Docker常用镜像启动脚本
+# Docker 常用镜像启动脚本
 
 下面脚本中的tag可以更换为任意版本号或者latest
 
@@ -17,7 +17,7 @@ categories:
 - 默认数据目录：/var/lib/mysql
 - 默认配置文件目录：/etc/mysql/conf.d
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -30,7 +30,7 @@ docker run \
   mysql:tag
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -43,7 +43,7 @@ podman run \
   docker.io/mysql:tag
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```yaml
 version: '3'
@@ -68,7 +68,7 @@ services:
 - 默认数据目录：/var/lib/postgresql/data
 - 配置容器密码：POSTGRES_PASSWORD=123456
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -80,7 +80,7 @@ docker run \
   postgres:tag
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -92,7 +92,7 @@ podman run \
   docker.io/postgres:tag
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```yaml
 version: '3'
@@ -111,11 +111,11 @@ services:
 
 ### 可用环境变量
 
-- POSTGRES_USER: 创建数据库用户名（缺省postgres）
+- POSTGRES_USER: 创建数据库用户名（缺省 postgres）
 - POSTGRES_PASSWORD: 创建数据库密码（必须）
-- POSTGRES_DB: 创建数据库名（缺省变量POSTGRES_USER值）
-- POSTGRES_INITDB_ARGS: 传递给initdb的参数（缺省）
-- PGDATA: 数据目录（缺省/var/lib/postgresql/data）
+- POSTGRES_DB: 创建数据库名（缺省变量 POSTGRES_USER 值）
+- POSTGRES_INITDB_ARGS: 传递给 initdb 的参数（缺省）
+- PGDATA: 数据目录（缺省 /var/lib/postgresql/data）
 
 ## Redis
 
@@ -123,7 +123,7 @@ services:
 - 默认数据目录：/data
 - 默认配置文件目录：/usr/local/etc/redis
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -135,7 +135,7 @@ docker run \
   redis:tag
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -147,7 +147,7 @@ podman run \
   docker.io/redis:tag
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```yaml
 version: '3'
@@ -170,7 +170,7 @@ services:
 - 默认配置文件目录：/usr/local/etc/redis
 - 默认WebUI访问端口：8001
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -183,7 +183,7 @@ docker run \
   redis/redis-stack:tag
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -196,7 +196,7 @@ podman run \
   docker.io/redis/redis-stack:tag
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```yaml
 version: '3'
@@ -219,7 +219,7 @@ services:
 - 默认数据目录：/data/db
 - 默认配置文件目录：/etc/mongod.conf
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -231,7 +231,7 @@ docker run \
   mongo:tag
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -243,7 +243,7 @@ podman run \
   docker.io/mongo:tag
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```yaml
 version: '3'
@@ -267,7 +267,7 @@ services:
 - 默认端口：9200
 - 开启单节点模式："discovery.type=single-node"
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -278,7 +278,7 @@ docker run \
   elasticsearch:tag
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -289,7 +289,7 @@ podman run \
   docker.io/elasticsearch:tag
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```shell
 version: '3'
@@ -312,7 +312,7 @@ services:
 - 默认WebUI访问端口：15672
 - 默认数据目录：/var/lib/rabbitmq
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -324,7 +324,7 @@ docker run \
   rabbitmq:tag
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -336,7 +336,7 @@ podman run \
   docker.io/rabbitmq:tag
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```yaml
 version: '3'
@@ -358,7 +358,7 @@ services:
 - 默认WebUI访问端口：9001
 - 默认数据目录：/data
 
-### docker启动
+### docker 启动
 
 ```shell
 docker run \
@@ -372,7 +372,7 @@ docker run \
   --console-address ":9001"
 ```
 
-### podman启动
+### podman 启动
 
 ```shell
 podman run \
@@ -386,7 +386,7 @@ podman run \
   --console-address ":9001"
 ```
 
-### docker compose启动
+### docker compose 启动
 
 ```yaml
 version: '3'

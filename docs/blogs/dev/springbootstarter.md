@@ -1,5 +1,5 @@
 ---
-title: SpringBootStarter的构建
+title: SpringBootStarter 的构建
 date: 2023/10/15
 tags:
  - SpringBoot
@@ -7,8 +7,8 @@ categories:
  - dev
 ---
 
-# SpringBootStarter的构建
-1. 创建一个SpringBoot项目，引入依赖
+# SpringBootStarter 的构建
+1. 创建一个 SpringBoot 项目，引入依赖
 
    ```xml
    <dependencies>
@@ -34,7 +34,7 @@ categories:
    </dependencies>
    ```
 
-2. 创建一个工具类，用以输出并自定义Json字符串
+2. 创建一个工具类，用以输出并自定义 Json 字符串
 
    ```java
    public class JsonService {
@@ -100,17 +100,17 @@ categories:
    }    
    ```
 
-5. 在项目资源目录下的`META-INF/spring.factories`中注册配置类
+5. 在项目资源目录下的 `META-INF/spring.factories` 中注册配置类
 
    ```properties
    org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.reine.config.JsonConfiguration
    ```
 
-6. 使用`mvn install`将项目安装为本地依赖，可能出现此问题，无视即可
+6. 使用 `mvn install` 将项目安装为本地依赖，可能出现此问题，无视即可
 
    > Unable to find main class
 
-7. 在`target/classes/META-INF/spring-configuration-metadata.json`中可以看到类似如下配置
+7. 在 `target/classes/META-INF/spring-configuration-metadata.json` 中可以看到类似如下配置
 
    ```json
    {

@@ -1,5 +1,5 @@
 ---
-title: Maven插件开发
+title: Maven 插件开发
 date: 2024/7/3
 tags:
  - Java
@@ -8,7 +8,7 @@ categories:
 ---
 
 
-# Maven插件开发
+# Maven 插件开发
 
 ## 插件配置
 

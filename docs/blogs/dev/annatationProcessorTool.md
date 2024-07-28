@@ -7,19 +7,19 @@ categories:
  - dev
 ---
 
-# Annotation Processor Tool使用
+# Annotation Processor Tool 使用
 
 ## 介绍
 
-Annotation Processor Tool（APT）是Java 5引入的，用于在编译时处理注解的工具。它允许在编译时生成额外的代码或进行其他处理。
+Annotation Processor Tool(APT)是 Java 5 引入的，用于在编译时处理注解的工具。它允许在编译时生成额外的代码或进行其他处理。
 
 ## 用法
 
-使用APT，需要编写一个注解处理器（Annotation Processor）和一个或多个注解。然后，在编译时，使用APT工具来处理这些注解，生成额外的代码或进行其他处理。
+使用 APT，需要编写一个注解处理器 (Annotation Processor) 和一个或多个注解。然后，在编译时，使用 APT 工具来处理这些注解，生成额外的代码或进行其他处理。
 
 ## 示例
 
-> 本示例使用Gradle构建工具构建项目，本工程目标是通过APT创建工厂类实现工厂模式
+> 本示例使用 Gradle 构建工具构建项目，本工程目标是通过 APT 创建工厂类实现工厂模式
 
 ### APT子工程
 

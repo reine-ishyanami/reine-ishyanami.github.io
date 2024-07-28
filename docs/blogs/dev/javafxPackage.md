@@ -1,5 +1,5 @@
 ---
-title: JavaFX项目构建为可执行文件
+title: JavaFX 项目构建为可执行文件
 date: 2023/10/29
 tags:
  - JavaFX
@@ -7,9 +7,9 @@ categories:
  - dev
 ---
 
-# JavaFX项目构建为可执行文件
+# JavaFX 项目构建为可执行文件
 
-**以下的jdk版本要求仅对于lts版本的jdk，其他版本的jdk中如果有对应的可执行程序，亦可成功运行**
+**以下的 jdk 版本要求仅对于 lts 版本的 jdk，其他版本的 jdk 中如果有对应的可执行程序，亦可成功运行**
 
 ## 1. javafxpackager
 
@@ -17,11 +17,11 @@ categories:
 > 
 > 项目类型: 对于任意类型项目
 
-1. 用IDEA打开项目，按下`ctrl+shift+alt+S`快捷键，进入项目结构窗口
+1. 用IDEA打开项目，按下 `ctrl+shift+alt+S` 快捷键，进入项目结构窗口
 
-2. 点击`项目设置 -> 工件`
+2. 点击 `项目设置 -> 工件`
 
-3. 点击`+`号，如下图所示
+3. 点击 `+` 号，如下图所示
 
    ![add](../assets/javafxPackage_01.png)
 
@@ -43,17 +43,17 @@ categories:
 
    ![Build2](../assets/javafxPackage_04.png)
 
-6. 构建完成后可在项目目录下的out文件夹找到对应的`exe`文件
+6. 构建完成后可在项目目录下的 out 文件夹找到对应的 `exe` 文件
 
 ## 2. JavaPackager
 
-> 版本要求: 任意java版本
+> 版本要求: 任意 java 版本
 > 
-> 项目类型: 仅对maven或gradle项目
+> 项目类型: 仅对 maven 或 gradle 项目
 
-**插件主页[JavaPackager](https://github.com/fvarrui/JavaPackager)**
+**插件主页 [JavaPackager](https://github.com/fvarrui/JavaPackager)**
 
-1. windows需要安装[innosetup](https://jrsoftware.org/isinfo.php)和[wixtoolset v3](https://wixtoolset.org/), 推荐使用包管理器`Chocolatey`或`Scoop`进行安装
+1. windows 需要安装 [innosetup](https://jrsoftware.org/isinfo.php) 和 [wixtoolset v3](https://wixtoolset.org/), 推荐使用包管理器 `Chocolatey` 或 `Scoop` 进行安装
 
    * [Chocolatey](https://chocolatey.org/install)
 
@@ -69,11 +69,11 @@ categories:
    scoop install wixtoolset
    ```
 
-   * 如果手动安装innosetup和wixtoolset，则需要将`innosetup(iscc)`和`wixtoolset(candle & light)`添加到环境变量中
+   * 如果手动安装 innosetup 和 wixtoolset，则需要将 `innosetup(iscc)` 和 `wixtoolset(candle & light)` 添加到环境变量中
 
 2. 在项目中引入依赖项，只列出了部分配置，更多完整配置请参考插件仓库主页（不要使用1.7.3-1.7.5的版本）
 
-### maven项目配置
+### maven 项目配置
 
 1. `pom.xml`
 
@@ -131,7 +131,7 @@ categories:
    mvn package
    ```
     
-### gradle项目配置
+### gradle 项目配置
 
 1. `build.gradle`
 
@@ -188,11 +188,11 @@ categories:
 > 
 > 项目类型: 对于任意类型项目，但推荐使用构建工具（如maven或gradle）
 
-### maven项目配置
+### maven 项目配置
 
-**更多配置参考[javafx-maven-plugin](https://github.com/openjfx/javafx-maven-plugin)**
+**更多配置参考 [javafx-maven-plugin](https://github.com/openjfx/javafx-maven-plugin)**
 
-1. IDEA中选择JavaFX项目maven创建项目，`pom.xml`默认会添加
+1. IDEA 中选择 JavaFX 项目 maven 创建项目，`pom.xml` 默认会添加
 
    ```xml
    <!--以及javafx依赖-->
@@ -224,7 +224,7 @@ categories:
    mvn javafx:jlink
    ```
 
-3. 在项目目录下使用下面命令进行`jpackage`打包，只列出了部分参数，其他参数可以使用`jpackage -h`查看
+3. 在项目目录下使用下面命令进行 `jpackage` 打包，只列出了部分参数，其他参数可以使用 `jpackage -h` 查看
 
    ```bat
    jpackage ^
@@ -236,13 +236,13 @@ categories:
      --dest .\target\jpackage\
    ```
 
-### gradle项目配置
+### gradle 项目配置
 
-**更多配置参考[jlink plugin](https://badass-jlink-plugin.beryx.org/releases/latest/)**
+**更多配置参考 [jlink plugin](https://badass-jlink-plugin.beryx.org/releases/latest/)**
 
-**注意：version字段只能包含数字和.**
+**注意：version 字段只能包含数字和.**
 
-1. IDEA中选择JavaFX项目gradle创建项目，`build.gradle`中添加，如果原来的文件中存在则可以忽略
+1. IDEA 中选择 JavaFX 项目 gradle 创建项目，`build.gradle` 中添加，如果原来的文件中存在则可以忽略
 
    ```groovy
    plugins {
@@ -291,7 +291,7 @@ categories:
    gradle jpackage
    ```
 
-3. 在`build/jpackage`文件夹中可以找到生成的exe和msi文件
+3. 在 `build/jpackage` 文件夹中可以找到生成的 exe 和 msi 文件
 
 
 ## 4. native-image
@@ -299,6 +299,6 @@ categories:
 
 > 版本要求: graalvm jdk17
 > 
-> 项目类型: 仅对maven或gradle项目
+> 项目类型: 仅对 maven 或 gradle 项目
 
 [移步链接](./graalvmNative.md)

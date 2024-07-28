@@ -1,5 +1,5 @@
 ---
-title: EnableXXX注解的实现方式
+title: EnableXXX 注解的实现方式
 date: 2023/10/15
 tags:
  - SpringBoot
@@ -7,7 +7,7 @@ categories:
  - dev
 ---
 
-# EnableXXX注解的实现方式
+# EnableXXX 注解的实现方式
 
 > 需求: 在每周四访问RestApi接口时，返回KFC V Me 50错误信息
 
@@ -112,7 +112,7 @@ categories:
    }    
    ```
 
-6. @EnableXXX注解类
+6. @EnableXXX 注解类
 
    ```java
    @Target(ElementType.TYPE)
@@ -123,7 +123,7 @@ categories:
    }
    ```
 
-7. 可以install为starter给其他项目使用或者直接使用，即在启动类上加上`@EnableThursday`注解
+7. 可以 install 为 starter 给其他项目使用或者直接使用，即在启动类上加上 `@EnableThursday` 注解
 
 ## @Import注解的使用
 

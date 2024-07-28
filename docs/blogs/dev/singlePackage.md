@@ -1,5 +1,5 @@
 ---
-title: Java项目打包成可执行jar文件
+title: Java 项目打包成可执行 jar 文件
 date: 2023/7/22
 tags:
  - JavaFX
@@ -8,7 +8,7 @@ categories:
  - dev
 ---
 
-# Java项目打包成可执行jar文件
+# Java 项目打包成可执行 jar 文件
 
 ## maven
 
@@ -63,11 +63,11 @@ categories:
 
 3. 运行
 
-   上一步操作会在项目目录下的`target`文件夹下生成两个jar包
+   上一步操作会在项目目录下的 `target` 文件夹下生成两个 jar 包
    
-   分别是`artifactId-version.jar`与`artifactId-version-jar-with-dependencies.jar`,
+   分别是 `artifactId-version.jar` 与 `artifactId-version-jar-with-dependencies.jar`,
    
-   其中`artifactId-version-jar-with-dependencies.jar`便是生成的可执行jar包
+   其中 `artifactId-version-jar-with-dependencies.jar` 便是生成的可执行jar包
 
 
 #### 使用 `maven-shade-plugin`
@@ -126,7 +126,7 @@ categories:
 
 ## gradle
 
-1. 向`build.gradle`中添加配置项
+1. 向 `build.gradle` 中添加配置项
 
    ```groovy
    jar {
@@ -149,4 +149,4 @@ categories:
 
 3. 运行
 
-   上一步操作会在项目目录下的`build/libs`文件夹下生成一个可执行jar包
+   上一步操作会在项目目录下的 `build/libs` 文件夹下生成一个可执行 jar 包

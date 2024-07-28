@@ -1,5 +1,5 @@
 ---
-title: Podman进阶使用
+title: Podman 进阶使用
 date: 2023/11/22
 tags:
   - Linux
@@ -7,15 +7,15 @@ categories:
   - ops
 ---
 
-# Podman进阶使用
+# Podman 进阶使用
 
-> 本文只列出`podman`相较于`docker`的特殊命令以及与`docker`有别的命令
+> 本文只列出 `podman` 相较于 `docker` 的特殊命令以及与 `docker` 有别的命令
 
-## 使用pod
+## 使用 pod
 
 > [使用pod](https://access.redhat.com/documentation/zh-cn/red_hat_enterprise_linux/9/html/building_running_and_managing_containers/assembly_working-with-pods_building-running-and-managing-containers#doc-wrapper)
 
-### 创建pod
+### 创建 pod
 
 
 1. 创建空 pod

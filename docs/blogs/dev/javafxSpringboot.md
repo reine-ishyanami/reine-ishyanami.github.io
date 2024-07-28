@@ -1,5 +1,5 @@
 ---
-title: SpringBoot整合JavaFX
+title: SpringBoot 整合 JavaFX
 date: 2023/9/13
 tags:
  - SpringBoot
@@ -8,8 +8,8 @@ categories:
  - dev
 ---
 
-# SpringBoot整合JavaFX
-## 第一种方案，通过引用第三方jar包，整合JavaFX（oracle jdk8）
+# SpringBoot 整合 JavaFX
+## 第一种方案，通过引用第三方 jar 包，整合 JavaFX(oracle jdk8)
 
 1. 引入依赖
 
@@ -21,7 +21,7 @@ categories:
    </dependency>
    ```
 
-2. 创建fxml文件，如`main.fxml`
+2. 创建 fxml 文件，如 `main.fxml`
 
    ```xml
    <!--导包已省略-->
@@ -34,7 +34,7 @@ categories:
    </VBox>
    ```
 
-3. 创建对应控制器`Main.java`，并将其定义为视图类
+3. 创建对应控制器 `Main.java`，并将其定义为视图类
 
    ```java
    @FXMLController
@@ -130,9 +130,9 @@ categories:
    ```
 
 
-## 第二种方案，通过SpringBoot的事件发布订阅机制（oracle jdk8）
+## 第二种方案，通过 SpringBoot 的事件发布订阅机制(oracle jdk8)
 
-1. 创建fxml文件，如`main.fxml`
+1. 创建 fxml 文件，如 `main.fxml`
 
    ```xml
    <!--导包已省略-->
@@ -145,7 +145,7 @@ categories:
    </VBox>
    ```
 
-2. 创建对应控制器`Main.java`
+2. 创建对应控制器 `Main.java`
 
    ```java
    @Component
@@ -164,7 +164,7 @@ categories:
    }
    ```
 
-3. 要进行发布的事件`StageReadyEvent`
+3. 要进行发布的事件 `StageReadyEvent`
 
    ```java
    public class StageReadyEvent extends ApplicationEvent {
@@ -184,7 +184,7 @@ categories:
    } 
    ```
 
-4. 对应的事件监听者`StageInitializer`
+4. 对应的事件监听者 `StageInitializer`
 
    ```java
    @Component
@@ -250,10 +250,10 @@ categories:
 
 6. 启动时不会像上一种方式有加载动画，而是启动完成后直接展示窗口
 
-## jdk11及以上的写法
+## jdk11 及以上的写法
 > 由于jdk11后oracle jdk移除了JavaFX模块，故使用JavaFX时需要引入`javafx-control`和`javafx-fxml`两个第三方包，并且javafx的类库需要使用java的模块化进行加载，而springboot包没有支持java的模块化，故不可以与普通javafx项目一样添加`module-info.java`文件并声明引入的包。但是可以使用匿名模块的方式启动JavaFX程序，
 
-**示例如下：在原有代码的基础上，新建一个启动类，在该启动类中启动JavaFX的主程序**
+**示例如下：在原有代码的基础上，新建一个启动类，在该启动类中启动 JavaFX 的主程序**
 
 ```java
 public class Launcher {

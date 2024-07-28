@@ -39,11 +39,11 @@ categories:
 
 1. 安装 oh-my-zsh
 	
-	|Method|Command|
-	| ---- | ------- |
-	|curl|sh -c "$(curl -fsSL https://install.ohmyz.sh/)"|
-	|wget|sh -c "$(wget -O- https://install.ohmyz.sh/)"|
-	|fetch|sh -c "$(fetch -o - https://install.ohmyz.sh/)"|
+	| Method | Command                                         |
+	|--------|-------------------------------------------------|
+	| curl   | sh -c "$(curl -fsSL https://install.ohmyz.sh/)" |
+	| wget   | sh -c "$(wget -O- https://install.ohmyz.sh/)"   |
+	| fetch  | sh -c "$(fetch -o - https://install.ohmyz.sh/)" |
 
 2. 查看可用主题
 
@@ -61,12 +61,12 @@ categories:
 
 4. 安装插件[其他插件列表](https://github.com/unixorn/awesome-zsh-plugins)
 
-   | Name                 |Command|
-   |----------------------| ------- |
-   |zsh-autosuggestions|git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions|
-	|zsh-syntax-highlighting|git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting|
-	|z|内置|
-	|extract|内置|
+   | Name                    | Command                                                                                                                              |
+   |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+   | zsh-autosuggestions     | git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions            |
+	| zsh-syntax-highlighting | git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting |
+	| z                       | 内置                                                                                                                                   |
+	| extract                 | 内置                                                                                                                                   |
 
 5. 配置插件
 

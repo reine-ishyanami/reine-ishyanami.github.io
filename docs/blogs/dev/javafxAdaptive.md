@@ -16,7 +16,7 @@ categories:
 ![预览图](../assets/javafxAdaptive_01.png)
 
 
-## 1. 在controller初始化方法编写组件自适应代码
+## 1. 在 controller 初始化方法编写组件自适应代码
 
 1. `fxml`
 
@@ -88,9 +88,9 @@ categories:
    }    
    ```
 
-## 2. 在fxml文件中绑定宽高
+## 2. 在 fxml 文件中绑定宽高
 
-这种方法无需在controller中编写java代码，但是有一个致命的问题是**先加入的组件无法使用后加入的组件的属性值**
+这种方法无需在 controller 中编写 java 代码，但是有一个致命的问题是**先加入的组件无法使用后加入的组件的属性值**
 
 1. `fxml`
 
@@ -114,7 +114,7 @@ categories:
 2. `Application`（同上，故省略）
 
 
-## 3. 使用layoutChildren方法（使用fx:root写法）(推荐使用)
+## 3. 使用 layoutChildren 方法（使用fx:root写法）(推荐使用)
 
 1. `fxml`
 

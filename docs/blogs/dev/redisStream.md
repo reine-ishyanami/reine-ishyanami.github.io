@@ -1,5 +1,5 @@
 ---
-title: SpringBoot中使用Redis Stream数据类型实现消息队列
+title: SpringBoot 中使用 Redis Stream 数据类型实现消息队列
 date: 2023/8/11
 tags:
  - SpringBoot
@@ -7,9 +7,9 @@ categories:
  - dev
 ---
 
-# SpringBoot中使用Redis Stream数据类型实现消息队列
+# SpringBoot 中使用 Redis Stream 数据类型实现消息队列
 ## 工具类
-> 用于操作redis中的stream数据类型，在后续代码中会注入此工具类使用
+> 用于操作 redis 中的 stream 数据类型，在后续代码中会注入此工具类使用
 
 ```java
 import lombok.RequiredArgsConstructor;
@@ -87,7 +87,7 @@ public class RedisStreamUtils {
 ```
 
 ## 常量类
-> 在后续代码中使用的的`key` `group` `consumer`名称会从此常量类中获取
+> 在后续代码中使用的的 `key` `group` `consumer` 名称会从此常量类中获取
 
 ```java
 import lombok.AccessLevel;
@@ -105,7 +105,7 @@ public class Constant {
 ```
 
 ## 消费者 
-> `consumer`负责将队列中的消息取出进行后续操作，并自动提交
+> `consumer` 负责将队列中的消息取出进行后续操作，并自动提交
 
 ```java
 import lombok.RequiredArgsConstructor;
@@ -136,7 +136,7 @@ public class Listener implements StreamListener<String, MapRecord<String, String
 ```
 
 ## 配置类
-> 配置消费组和消费者对象，以及将被消费者消费的`stream`的`key`
+> 配置消费组和消费者对象，以及将被消费者消费的 `stream` 的 `key`
 
 ```java
 import lombok.RequiredArgsConstructor;
@@ -236,12 +236,13 @@ public class RedisStreamConfiguration {
 ```
 
 *为了简化代码，可以将线程池创建代码改为，但可能会影响性能*
+
 ```java
 ExecutorService executor = Executors.newCachedThreadPool();
 ```
 
 ## 生产者
-> 将消息投递到对应`key`的`stream`数据类型中，供给对应消费者
+> 将消息投递到对应 `key` 的 `stream` 数据类型中，供给对应消费者
 
 ```java
 import lombok.RequiredArgsConstructor;

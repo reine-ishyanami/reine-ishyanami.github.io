@@ -1,5 +1,5 @@
 ---
-title: Python应用打包发布
+title: Python 应用打包发布
 date: 2023/7/24
 tags:
  - Python
@@ -7,17 +7,17 @@ categories:
  - dev
 ---
 
-# Python应用打包发布
+# Python 应用打包发布
 
-1. 注册Pypi账号
-2. 安装build（建议在虚拟环境中安装）
+1. 注册 Pypi 账号
+2. 安装 build（建议在虚拟环境中安装）
 
    ```shell
    source .venv/bin/activate
    pip install build
    ```
 
-3. 安装twine（建议在虚拟环境中安装）
+3. 安装 twine（建议在虚拟环境中安装）
 
    ```shell
    pip install twine
@@ -37,9 +37,9 @@ categories:
    └── tests/
    ```
 
-5. 选择开源协议，将协议内容填到LICENSE文件中[choosealicense](https://choosealicense.com/)
+5. 选择开源协议，将协议内容填到 LICENSE 文件中 [choosealicense](https://choosealicense.com/)
 
-6. 编写`pyproject.toml`项目配置文件
+6. 编写 `pyproject.toml` 项目配置文件
 
    ```toml
    [project]

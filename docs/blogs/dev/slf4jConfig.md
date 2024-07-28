@@ -1,5 +1,5 @@
 ---
-title: SpringBoot项目使用slf4j配置logback日志
+title: SpringBoot 项目使用 slf4j 配置 logback 日志
 date: 2023/8/16
 tags:
  - SpringBoot
@@ -7,7 +7,7 @@ categories:
  - dev
 ---
 
-# SpringBoot项目使用slf4j配置logback日志
+# SpringBoot 项目使用 slf4j 配置 logback 日志
 1. 引入依赖
 
    maven
@@ -27,14 +27,14 @@ categories:
    annotationProcessor 'org.projectlombok:lombok'
    ```
 
-2. `application.yml`配置
+2. `application.yml` 配置
 
    ```yml
    logging:
      config: classpath:config/logback-spring.xml
    ```
 
-3. `logback-spring.xml`配置文件
+3. `logback-spring.xml` 配置文件
 
    ```xml
    <?xml version="1.0" encoding="UTF-8"?>

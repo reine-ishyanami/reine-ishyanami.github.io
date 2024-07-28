@@ -1,5 +1,5 @@
 ---
-title: Java模块化
+title: Java 模块化
 date: 2023/7/20
 tags:
  - Java
@@ -7,27 +7,27 @@ categories:
  - dev
 ---
 
-# Java模块化
+# Java 模块化
 ## 一、模块系统简介
 
-如果把Java 8比作单体应用，那么引入模块系统之后，从Java 9开始，Java 就华丽的转身为微服务。模块系统，项目代号 Jigsaw，最早于2008年8月提出（比Martin Fowler 提出微服务还早6年），2014年跟随Java 9正式进入开发阶段，最终跟随Java 9发布于2017年9月。
+如果把 Java 8 比作单体应用，那么引入模块系统之后，从 Java 9 开始，Java 就华丽的转身为微服务。模块系统，项目代号 Jigsaw，最早于2008年8月提出（比Martin Fowler 提出微服务还早6年），2014年跟随 Java 9 正式进入开发阶段，最终跟随 Java 9 发布于2017年9月。
 
-那么什么是模块系统？官方的定义是**A uniquely named， reusable group of related packages， as well as resources （such as images and XML files） and a module descriptor**．如图-1 所示，模块的载体是 jar 文件，一个模块就是一个jar 文件，但相比于传统的jar 文件，模块的根目录下多了一个 `module-info.class` 文件，也即 `module descriptor`。 `module descriptor` 包含以下 信息：
+那么什么是模块系统？官方的定义是 **A uniquely named， reusable group of related packages， as well as resources （such as images and XML files） and a module descriptor**．如图-1 所示，模块的载体是 jar 文件，一个模块就是一个 jar 文件，但相比于传统的 jar 文件，模块的根目录下多了一个 `module-info.class` 文件，也即 `module descriptor`。 `module descriptor` 包含以下 信息：
 
 -  模块名称 
 -  依赖哪些模块 
 -  导出模块内的哪些包（允许直接 import 使用） 
--  开放模块内的哪些包（允许通过Java反射访问） 
+-  开放模块内的哪些包（允许通过 Java 反射访问） 
 -  提供哪些服务 
 -  依赖哪些服务 
 
 ## 二、演示（前期准备）
 
-新建三个项目（IDEA中创建一个空项目，在空项目中创建3个模块（module）），如下图
+新建三个项目（IDEA中创建一个空项目，在空项目中创建3个模块(module)），如下图
 
 ![2022-08-07-16-59-00-image.png](../assets/2022-08-07-16-59-00-image.png)
 
-给每一个子模块创建类，内容如下（模板），并添加`module-info.java`文件
+给每一个子模块创建类，内容如下（模板），并添加 `module-info.java` 文件
 
 ```java
 package com.reine.xx;
@@ -58,7 +58,7 @@ module XX{
 }
 ```
 
-如果使用IDEA，则需要在对应项目中的`.iml`文件中注明依赖的模块，如
+如果使用IDEA，则需要在对应项目中的 `.iml` 文件中注明依赖的模块，如
 
 ```xml
     <orderEntry type="module" module-name="A" />
@@ -66,7 +66,7 @@ module XX{
 
 ##### 例1（模块引入与导出）
 
-模块A中的`module-info.java`文件
+模块A中的 `module-info.java` 文件
 
 ```java
 module A {
@@ -75,7 +75,7 @@ module A {
 }
 ```
 
-模块B中的`module-info.java`文件
+模块B中的 `module-info.java` 文件
 
 ```java
 module B {
@@ -84,7 +84,7 @@ module B {
 }
 ```
 
-`main`方法
+`main` 方法
 
 ```java
 package com.reine.main;
@@ -98,7 +98,7 @@ public class Main {
 }
 ```
 
-模块C中的`module-info.java`文件
+模块C中的 `module-info.java` 文件
 
 ```java
 module C {
@@ -106,7 +106,7 @@ module C {
 }
 ```
 
-`main`方法
+`main` 方法
 
 ```java
 package com.reine.main;
@@ -128,7 +128,7 @@ public class Main {
 
 ##### 例2（模块B传递依赖模块A）
 
-模块B中的`module-info.java`文件
+模块B中的 `module-info.java` 文件
 
 ```java
 module B {
@@ -145,7 +145,7 @@ module C {
 }
 ```
 
-模块C中的`main`方法
+模块C中的 `main` 方法
 
 ```java
 package com.reine.mainc;
@@ -174,7 +174,7 @@ public class Main {
 }
 ```
 
-##### 例3（将模块A中HelloA1的hello方法的访问修饰符改为private）
+##### 例3（将模块A中 HelloA1 的 hello 方法的访问修饰符改为 private）
 
 ```java
 package com.reine.a1;
@@ -186,7 +186,7 @@ public class HelloA1 {
 }
 ```
 
-使用exports导出`com.reine.a1`
+使用exports导出 `com.reine.a1`
 
 ```java
 module A {
@@ -194,7 +194,7 @@ module A {
 }
 ```
 
-B中使用`requires A;`导入模块A，使用反射调用hello方法（**报错**`**java.lang.reflect.InaccessibleObjectException**`）
+B中使用 `requires A;` 导入模块A，使用反射调用 hello 方法（**报错**`**java.lang.reflect.InaccessibleObjectException**`）
 
 ```java
 package com.reine.mainb;
@@ -215,7 +215,7 @@ public class Main1 {
 }
 ```
 
-##### 例4 （将模块A中HelloA2的hello方法的访问修饰符改为private）
+##### 例4 （将模块A中 HelloA2 的 hello 方法的访问修饰符改为 private）
 
 ```java
 package com.reine.a2;
@@ -227,7 +227,7 @@ public class HelloA2 {
 }
 ```
 
-使用opens导出`com.reine.a1`**【对比例3】**
+使用 opens 导出 `com.reine.a1` **【对比例3】**
 
 ```java
 module A {
@@ -235,7 +235,7 @@ module A {
 }
 ```
 
-B中使用`requires A;`导入模块A，使用反射调用hello方法（**通过**）
+B中使用 `requires A;` 导入模块A，使用反射调用 hello 方法（**通过**）
 
 ```java
 package com.reine.mainb;
@@ -267,7 +267,7 @@ module XX{
 
 ##### 例5 （模块B使用模块A定义的服务）
 
-模块A服务类`Print.java`
+模块A服务类 `Print.java`
 
 ```java
 package com.reine.service;
@@ -277,7 +277,7 @@ public interface Print {
 }
 ```
 
-具体实现类`HelloA1`和`HelloA2`
+具体实现类 `HelloA1` 和 `HelloA2`
 
 ```java
 package com.reine.a1;
@@ -329,7 +329,7 @@ module A {
 }
 ```
 
-模块B`module-info.java`使用`Print`服务
+模块B `module-info.java` 使用 `Print` 服务
 
 ```java
 module B {
@@ -338,7 +338,7 @@ module B {
 }
 ```
 
-`main`方法
+`main` 方法
 
 ```java
 package com.reine.mainb;

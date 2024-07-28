@@ -15,7 +15,7 @@ categories:
 
    ![project structure](../assets/gradleMultiMudole_01.png)
 
-2. 父项目`gradle.properties`用于定义一些用在`build.gradle`中的属性
+2. 父项目 `gradle.properties` 用于定义一些用在 `build.gradle` 中的属性
 
    ```properties
    group=com.reine
@@ -27,7 +27,7 @@ categories:
    lombokVersion=1.18.30
    ```
 
-3. 父项目`build.gradle`，用于定义一些全局配置
+3. 父项目 `build.gradle`，用于定义一些全局配置
 
    ```groovy
    plugins {
@@ -64,7 +64,7 @@ categories:
    }
    ```
 
-4. 父项目`setting.gradle`
+4. 父项目 `setting.gradle`
 
    ```groovy
    rootProject.name = 'gradle-multi-module'
@@ -74,7 +74,7 @@ categories:
    include 'http'
    ```
 
-5. `entity`模块的`build.gradle`
+5. `entity` 模块的 `build.gradle`
 
    ```groovy
    apply plugin: "org.springframework.boot"
@@ -88,7 +88,7 @@ categories:
    }
    ```
 
-6. `producer`模块的`build.gradle`
+6. `producer` 模块的 `build.gradle`
 
    ```groovy
    apply plugin: "org.springframework.boot"
@@ -105,7 +105,7 @@ categories:
    }    
    ```
 
-7. `http`模块的`build.gradle`
+7. `http` 模块的 `build.gradle`
 
    ```groovy
    apply plugin: "org.springframework.boot"
@@ -121,7 +121,7 @@ categories:
    }    
    ```
 
-8. `consumer`模块的`build.gradle`
+8. `consumer` 模块的 `build.gradle`
 
    ```groovy
    apply plugin: "org.springframework.boot"

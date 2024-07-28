@@ -1,5 +1,5 @@
 ---
-title: 几种常用的JavaFX组件库或样式
+title: 几种常用的 JavaFX 组件库或样式
 date: 2023/11/10
 tags:
  - JavaFX
@@ -7,7 +7,7 @@ categories:
  - dev
 ---
 
-# 几种常用的JavaFX组件库或样式
+# 几种常用的 JavaFX 组件库或样式
 
 ## AtlantaFX
 
@@ -29,7 +29,7 @@ categories:
    </dependency>    
    ```
 
-2. 引入模块，在`module-info.java`中声明下列语句
+2. 引入模块，在 `module-info.java` 中声明下列语句
 
    ```java
    requires atlantafx.base;
@@ -116,7 +116,7 @@ categories:
    </dependency>    
    ```
 
-2. 引入模块，在`module-info.java`中声明下列语句
+2. 引入模块，在 `module-info.java` 中声明下列语句
 
    ```java
    requires org.jfxtras.styles.jmetro;
@@ -188,7 +188,7 @@ categories:
    </dependency>    
    ```
 
-2. 引入模块，在`module-info.java`中声明下列语句
+2. 引入模块，在 `module-info.java` 中声明下列语句
 
    ```java
    requires MaterialFX;

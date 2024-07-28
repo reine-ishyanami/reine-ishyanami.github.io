@@ -1,5 +1,5 @@
 ---
-title: GraalVM native-image编译
+title: GraalVM native-image 编译
 date: 2023/7/22
 tags:
  - JavaFX
@@ -8,15 +8,15 @@ categories:
  - dev
 ---
 
-# GraalVM native-image编译
+# GraalVM native-image 编译
 
 ## 基础环境配置
 
 1. 下载[graalvm](https://www.graalvm.org/downloads/)
 
-2. 配置`JAVA_HOME`和`GRAALVM_HOME`环境变量，内容为下载的graalvm的解压路径；将二进制文件，即`%JAVA_HOME%\bin`添加到`Path`环境变量中
+2. 配置 `JAVA_HOME` 和 `GRAALVM_HOME` 环境变量，内容为下载的 graalvm 的解压路径；将二进制文件，即 `%JAVA_HOME%\bin` 添加到 `Path` 环境变量中
 
-3. 安装native-image（新版graalvm已自带native-image，可省略此步骤）
+3. 安装 native-image（新版graalvm已自带native-image，可省略此步骤）
    
    ```shell
    gu.cmd install native-image
@@ -39,17 +39,17 @@ categories:
 
 6. 查找对应的变量值
    
-   - vs msvc的bin目录`D:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64`，其中版本号`2022\Enterprise`因选择的不同版本而有所差异，下面在配置环境变量时将`D:\Program Files\Microsoft Visual Studio\2022\Enterprise`简写为`$vs` 
+   - vs msvc 的 bin 目录 `D:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64`，其中版本号 `2022\Enterprise` 因选择的不同版本而有所差异，下面在配置环境变量时将 `D:\Program Files\Microsoft Visual Studio\2022\Enterprise` 简写为 `$vs` 
    
-   - 通过注册表获取windows sdk的安装目录，注册表路径`计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SDKs\Windows\v10.0`
-     复制键为`InstallationFolder`的值，下面步骤会用到，简写为`$windows10sdk` 
+   - 通过注册表获取 windows sdk 的安装目录，注册表路径 `计算机\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Microsoft SDKs\Windows\v10.0`
+     复制键为 `InstallationFolder` 的值，下面步骤会用到，简写为 `$windows10sdk` 
 
 7. 需要添加的环境变量内容
 
     **其中没有对应变量名的值，对应其往上最近的变量名**
    
    | 变量名     | 内容                                            |
-   | ------- | --------------------------------------------- |
+   |---------|-----------------------------------------------|
    | Path    | $vs\VC\Tools\MSVC\14.35.32215\bin\Hostx64\x64 |
    |         | $windows10sdk\bin\10.0.20348.0\x64            |
    | INCLUDE | $windows10sdk\Include\10.0.22000.0\ucrt       |
@@ -62,7 +62,7 @@ categories:
 
 8. 编译测试
    
-   > 新建`HelloWorld.java`文件，内容如下
+   > 新建 `HelloWorld.java` 文件，内容如下
    
    ```java
    public class HelloWorld {
@@ -80,19 +80,19 @@ categories:
    ./HelloWorld # 出现Hello, World!代表环境配置成功
    ```
 
-## SpringBoot项目
+## SpringBoot 项目
 
 此章节依赖于上一章节的环境配置
 
-**GraalVM native-image编译SpringBoot3项目**
+**GraalVM native-image 编译 SpringBoot3 项目**
 
 [官方地址](https://docs.spring.io/spring-boot/docs/current/reference/html/native-image.html#native-image)
 
-### maven项目
+### maven 项目
 
-1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖
+1. 创建 SpringBoot 项目，需要勾选 `GraalVM Native Support` 依赖
 
-   > 项目的`pom.xml`会多出以下插件
+   > 项目的 `pom.xml` 会多出以下插件
 
    ```xml
    <plugins>
@@ -104,7 +104,7 @@ categories:
    </plugins>
    ```
 
-2. 在`pom.xml`中添加程序入口类
+2. 在 `pom.xml` 中添加程序入口类
 
    ```xml
    <project>
@@ -123,11 +123,11 @@ categories:
    ./mvnw -Pnative native:compile
    ```
 
-4. 可在`project\target`文件夹中找到生成的可执行文件
+4. 可在 `project\target` 文件夹中找到生成的可执行文件
 
-### gradle项目
+### gradle 项目
 
-1. 创建SpringBoot项目，需要勾选`GraalVM Native Support`依赖 
+1. 创建 SpringBoot 项目，需要勾选 `GraalVM Native Support` 依赖 
 
    > 项目的`build.gradle`会多出以下插件
    
@@ -138,25 +138,25 @@ categories:
    }
    ```
 
-2. 执行命令 (gradle项目无需手动配置主启动类)
+2. 执行命令 (gradle 项目无需手动配置主启动类)
    
    ```shell
    ./gradlew nativeCompile
    ```
 
-3. 可在`project\build\native\nativeCompile`文件夹中找到生成的可执行文件
+3. 可在 `project\build\native\nativeCompile` 文件夹中找到生成的可执行文件
 
-## JavaFX项目
+## JavaFX 项目
 
-**GraalVM native-image编译JavaFX项目**
+**GraalVM native-image 编译 JavaFX 项目**
 
-请使用IDEA中的JavaFX创建项目
+请使用 IDEA 中的 JavaFX 创建项目
 
-### maven项目
+### maven 项目
 
 1. [插件主页](https://github.com/gluonhq/gluonfx-maven-plugin)
 
-2. `pom.xml`配置
+2. `pom.xml` 配置
 
    ```xml
    <project>
@@ -226,11 +226,11 @@ categories:
    mvn gluonfx:nativerun # 运行生成的exe文件
    ```
 
-### gradle项目
+### gradle 项目
 
 1. [插件主页](https://github.com/gluonhq/gluonfx-gradle-plugin)
 
-2. `build.gradle`配置
+2. `build.gradle` 配置
 
    ```groovy
    buildscript {
@@ -279,7 +279,7 @@ categories:
 
 ### 附录
 
-> javafx gradle项目的windows graalvm打包脚本（github action workflow），需要先运行gradle run生成反射配置并上传到远程仓库
+> javafx gradle 项目的 windows graalvm 打包脚本(github action workflow)，需要先运行 gradle run 生成反射配置并上传到远程仓库
 
 **相关链接**
 
@@ -289,7 +289,7 @@ categories:
 
 ```yml
 name: Windows Native-Image Build
-# 定义在推送tag时触发工作流程与手动触发工作流程
+# 定义在推送 tag 时触发工作流程与手动触发工作流程
 on:
   push:
     tags:
@@ -300,7 +300,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      # 安装GraalVM，配置JAVA_HOME GRAALVM_HOME
+      # 安装 GraalVM，配置JAVA_HOME GRAALVM_HOME
       - name: Setup GraalVM
         uses: graalvm/setup-graalvm@v1
         with:

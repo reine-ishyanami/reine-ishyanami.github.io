@@ -1,5 +1,5 @@
 ---
-title: 使用Javassist做字节码处理
+title: 使用 Javassist 做字节码处理
 date: 2023/12/5
 tags:
  - Java
@@ -7,9 +7,9 @@ categories:
  - dev
 ---
 
-# 使用Javassist做字节码处理
+# 使用 Javassist 做字节码处理
 
-> Javassist是一个强大的字节码操作工具，它提供了在运行时编辑Java字节码的能力。通过Javassist，开发人员可以动态地创建和修改Java类
+> Javassist 是一个强大的字节码操作工具，它提供了在运行时编辑 Java 字节码的能力。通过 Javassist，开发人员可以动态地创建和修改 Java 类
 
 * 引入依赖
 

@@ -1,5 +1,5 @@
 ---
-title: JavaFX Fxml使用说明
+title: JavaFX Fxml 使用说明
 date: 2023/8/6
 tags:
  - JavaFX
@@ -7,7 +7,7 @@ categories:
  - dev
 ---
 
-# JavaFX Fxml使用说明
+# JavaFX Fxml使 用说明
 
 ## 不通过控制器获取组件
 
@@ -37,14 +37,14 @@ categories:
       button.setOnAction(event -> textField.clear());
       ```
     
-   * 通过id选择器查找（fxml文件中Button组件应该设置`id=cssBtn`）
+   * 通过id选择器查找（fxml文件中Button组件应该设置 `id=cssBtn`）
 
       ```java
       Button button = (Button) root.lookup("#cssBtn");
       button.setOnAction(event -> textField.clear());
       ```
 
-3. 通过命名空间获取组件（推荐，组件必须设置`fx:id`属性，通过其对应的属性值获取组件）
+3. 通过命名空间获取组件（推荐，组件必须设置 `fx:id` 属性，通过其对应的属性值获取组件）
 
    ```java
    FXMLLoader loader = new FXMLLoader();
@@ -56,11 +56,11 @@ categories:
    btn.setOnAction(event -> tf.clear());
    ```
 
-## Controller初始化方法
+## Controller 初始化方法
 
-> 在controller构造器中，所有的fxml组件均未被初始化，如果需要在展示界面时传递参数让界面展示时使用，需要在fxml的生命周期函数`initialize`中操作组件
+> 在 controller 构造器中，所有的 fxml 组件均未被初始化，如果需要在展示界面时传递参数让界面展示时使用，需要在 fxml 的生命周期函数 `initialize` 中操作组件
 
-1. 实现Initializable接口，重写initialize方法
+1. 实现 Initializable 接口，重写 initialize 方法
 
    ```java
    public class MainController implements Initializable {
@@ -77,7 +77,7 @@ categories:
    }
    ```
 
-2. 使用@FXML注解标记initialize方法
+2. 使用 @FXML 注解标记 initialize 方法
 
    ```java
    public class MainController{
@@ -100,28 +100,28 @@ categories:
    }   
    ```
 
-## Controller构造器的传参
+## Controller 构造器的传参
 
-1. 如果fxml文件中指定了属性`fx:controller`，可以通过`setControllerFactory`方法使用该fxml文件的controller的构造器进行传参
+1. 如果 fxml 文件中指定了属性 `fx:controller`，可以通过 `setControllerFactory` 方法使用该 fxml 文件的 controller 的构造器进行传参
 
    ```java
    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/test1/test1.fxml")));
    loader.setControllerFactory(param -> new MainController1("落红与孤鹜齐飞"));
    ```
 
-2. 如果fxml文件中未指定属性`fx:controller`，可以通过`setController`方法使用controller的构造器进行传参
+2. 如果 fxml 文件中未指定属性 `fx:controller`，可以通过 `setController` 方法使用 controller 的构造器进行传参
 
    ```java
    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/test2/test2.fxml")));
    loader.setController(new MainController2("秋水共长天一色"));
    ```
 
-## 多controller间通信
-> 背景: 一个fxml文件中引入了其他的fxml文件，该如何获取此fxml文件中包含的其他fxml文件的控制器来操作其对应fxml文件中的组件
+## 多 controller 间通信
+> 背景: 一个 fxml 文件中引入了其他的 fxml 文件，该如何获取此 fxml 文件中包含的其他 fxml 文件的控制器来操作其对应 fxml 文件中的组件
 
-### 第一种方法，基于fxml文件
+### 第一种方法，基于 fxml 文件
 
-1. 在主fxml文件中引入其他fxml文件并指定`fx:id`
+1. 在主 fxml 文件中引入其他fxml文件并指定 `fx:id`
 
    ```xml
    <!--省略了一些导包、宽高、命名空间等无关配置-->
@@ -135,9 +135,9 @@ categories:
    </BorderPane>
    ```
 
-2. 在主控制器中注入另外两个fxml文件的控制器
+2. 在主控制器中注入另外两个 fxml 文件的控制器
 
-   > 命名规则：需要在fxml文件中指定fx:id="xxx"，注入的controller命名为xxxController，其中xxx为fxml文件中定义的`fx:id`
+   > 命名规则：需要在 fxml 文件中指定 fx:id="xxx"，注入的 controller 命名为 xxxController，其中 xxx 为 fxml 文件中定义的 `fx:id`
    
    ```java
    public class MainController {
@@ -156,8 +156,8 @@ categories:
    }
    ```
 
-### 第二种方法，基于Java代码（此方法亦适用于多窗口交互）
-> 通过自定义一个控制器管理器管理所有fxml的控制器，在需要使用到某个控制器时，调用管理器中的对应控制器对象来操作组件
+### 第二种方法，基于 Java 代码（此方法亦适用于多窗口交互）
+> 通过自定义一个控制器管理器管理所有 fxml 的控制器，在需要使用到某个控制器时，调用管理器中的对应控制器对象来操作组件
 
 1. 定义一个控制器管理器
 
@@ -173,7 +173,7 @@ categories:
    }
    ```
 
-2. 在各个fxml的控制器中，在初始化时将自身实例对象交给`ControllerManager`管理
+2. 在各个 fxml 的控制器中，在初始化时将自身实例对象交给 `ControllerManager` 管理
 
    ```java
    public class ProducerController {
@@ -205,11 +205,11 @@ categories:
 [具体代码](https://github.com/reine-ishyanami/test-fxml/tree/master/event-bus)
 
 
-## 标签`<fx:root>`的使用
+## 标签 `<fx:root>` 的使用
 
 ### 第一种使用方式，独立使用
 
-1. 编写fxml文件`/fxml/inner.fxml`
+1. 编写 fxml 文件 `/fxml/inner.fxml`
 
    ```xml
    <fx:root alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="450.0" spacing="50.0" type="VBox" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1">
@@ -275,7 +275,7 @@ categories:
    }
    ```
 
-### 第二种方法，作为其他fxml的子组件使用
+### 第二种方法，作为其他 fxml 的子组件使用
 
 ```xml
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="675.0" spacing="50.0" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1">
