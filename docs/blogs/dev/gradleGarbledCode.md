@@ -65,7 +65,7 @@ categories:
 
 ## 方法二：在 Ternimal 中使用 Gradle Wrapper 运行 （推荐）
 
-1. 增加环境变量 `JAVA_TOOL_OPTIONS`，值为 `-Dfile.encoding=GBK -Dsun.stdout.encoding=GBK -Dsun.stderr.encoding=GBK`
+1. 增加环境变量 `GRADLE_OPTS`，值为 `-Dfile.encoding=GBK`
 
 2. 项目中 `build.gradle` 文件添加下面代码
 
@@ -92,11 +92,18 @@ categories:
 
     ```shell
     > Task :runTest
-    Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=GBK -Dsun.stdout.encoding=GBK -Dsun.stderr.encoding=GBK
     Hello world!
     你好世界
-    sun.stdout.encoding = GBK
-    sun.stderr.encoding = GBK
+    sun.stdout.encoding = null
+    sun.stderr.encoding = null
         native.encoding = GBK
         file.encoding = GBK
     ```
+
+## 番外：环境变量 GRADLE_USER_HOME 的作用
+
+* `GRADLE_USER_HOME` 是 Gradle 的用户目录，用于存储 Gradle 的缓存、日志和其他临时文件。默认情况下，Gradle 会使用 `~/.gradle` 目录来存储这些文件，但是可以通过设置 `GRADLE_USER_HOME` 环境变量来指定一个自定义的目录。
+
+* `GRADLE_USER_HOME` 中可以放一些通用的配置文件，脚本（如 `gradle.properties`, `init.gradle`），在每一次执行 Gradle 命令时，都会应用这些配置文件
+
+* 综上所述，我们可以将方案二中的 `gradle.properties` 文件放到 `GRADLE_USER_HOME` 目录下，这样就可以在全局范围内使用该配置文件了
