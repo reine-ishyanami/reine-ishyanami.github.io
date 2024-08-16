@@ -3,8 +3,6 @@ title: Annotation Processor Tool
 date: 2024/7/3
 tags:
  - Java
-categories:
- - dev
 ---
 
 # Annotation Processor Tool 使用

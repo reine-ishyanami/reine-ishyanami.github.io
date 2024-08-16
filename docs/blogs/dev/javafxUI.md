@@ -3,8 +3,6 @@ title: 几种常用的 JavaFX 组件库或样式
 date: 2023/11/10
 tags:
  - JavaFX
-categories:
- - dev
 ---
 
 # 几种常用的 JavaFX 组件库或样式

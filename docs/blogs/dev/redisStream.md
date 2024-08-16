@@ -3,8 +3,6 @@ title: SpringBoot 中使用 Redis Stream 数据类型实现消息队列
 date: 2023/8/11
 tags:
  - SpringBoot
-categories:
- - dev
 ---
 
 # SpringBoot 中使用 Redis Stream 数据类型实现消息队列

@@ -3,8 +3,6 @@ title: JavaFX 组件自适应宽高
 date: 2023/1/18
 tags:
  - JavaFX
-categories:
- - dev
 ---
 
 # JavaFX 组件自适应宽高

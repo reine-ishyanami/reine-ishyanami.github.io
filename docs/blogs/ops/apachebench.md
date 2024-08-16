@@ -3,8 +3,6 @@ title: Apache Bench 接口压测工具的使用
 date: 2024/3/30
 tags:
   - Console
-categories:
-  - ops
 ---
 
 # Apache Bench接口压测工具的使用

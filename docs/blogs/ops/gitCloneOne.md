@@ -3,8 +3,6 @@ title: Git 只克隆仓库中的一个目录
 date: 2023/10/18
 tags:
   - Git
-categories:
-  - ops
 ---
 
 # Git 只克隆仓库中的一个目录

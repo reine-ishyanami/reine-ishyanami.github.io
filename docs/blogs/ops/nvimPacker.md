@@ -3,8 +3,6 @@ title: nvim 使用 packer 安装插件
 date: 2024/7/21
 tags:
   - Linux
-categories:
-  - ops
 ---
 
 # nvim 使用 packer 安装插件

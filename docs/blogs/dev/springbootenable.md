@@ -3,8 +3,6 @@ title: EnableXXX 注解的实现方式
 date: 2023/10/15
 tags:
  - SpringBoot
-categories:
- - dev
 ---
 
 # EnableXXX 注解的实现方式

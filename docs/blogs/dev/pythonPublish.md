@@ -3,8 +3,6 @@ title: Python 应用打包发布
 date: 2023/7/24
 tags:
  - Python
-categories:
- - dev
 ---
 
 # Python 应用打包发布

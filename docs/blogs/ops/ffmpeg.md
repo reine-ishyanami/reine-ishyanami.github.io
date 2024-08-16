@@ -3,8 +3,6 @@ title: FFmpeg
 date: 2023/7/20
 tags:
  - FFmepg
-categories:
- - ops
 ---
 
 # FFmpeg

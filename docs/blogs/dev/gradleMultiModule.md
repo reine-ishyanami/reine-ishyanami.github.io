@@ -3,8 +3,6 @@ title: Gradle 多模块项目构建
 date: 2023/1/16
 tags:
  - SpringBoot
-categories:
- - dev
 ---
 
 # Gradle 多模块项目构建

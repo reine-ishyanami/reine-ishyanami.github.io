@@ -3,8 +3,6 @@ title: Ubuntu 实例中添加 swap 分区的方法
 date: 2024/4/13
 tags:
  - Linux
-categories:
- - ops
 ---
 
 # Ubuntu 实例中添加 swap 分区的方法

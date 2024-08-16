@@ -3,8 +3,6 @@ title: SpringBoot 项目使用 slf4j 配置 logback 日志
 date: 2023/8/16
 tags:
  - SpringBoot
-categories:
- - dev
 ---
 
 # SpringBoot 项目使用 slf4j 配置 logback 日志

@@ -3,8 +3,6 @@ title: Git 修改提交记录中的作者信息
 date: 2023/10/21
 tags:
  - Git
-categories:
- - ops
 ---
 
 # Git 修改提交记录中的作者信息

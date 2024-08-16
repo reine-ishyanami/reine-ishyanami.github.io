@@ -3,8 +3,6 @@ title: Git 删除提交记录中的大文件
 date: 2023/10/17
 tags:
  - Git
-categories:
- - ops
 ---
 
 # Git 删除提交记录中的大文件

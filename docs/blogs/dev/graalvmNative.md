@@ -4,8 +4,6 @@ date: 2023/7/22
 tags:
  - JavaFX
  - SpringBoot
-categories:
- - dev
 ---
 
 # GraalVM native-image 编译

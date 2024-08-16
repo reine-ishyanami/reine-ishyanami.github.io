@@ -3,8 +3,6 @@ title: Docker 常用镜像启动脚本
 date: 2024/3/29
 tags:
   - Docker
-categories:
-  - ops
 ---
 
 # Docker 常用镜像启动脚本

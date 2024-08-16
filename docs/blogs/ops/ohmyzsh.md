@@ -3,8 +3,6 @@ title: oh-my-zsh 安装使用
 date: 2024/6/9
 tags:
   - Linux
-categories:
-  - ops
 ---
 
 # oh-my-zsh 安装使用

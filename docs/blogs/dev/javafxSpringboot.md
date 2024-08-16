@@ -4,8 +4,6 @@ date: 2023/9/13
 tags:
  - SpringBoot
  - JavaFX
-categories:
- - dev
 ---
 
 # SpringBoot 整合 JavaFX

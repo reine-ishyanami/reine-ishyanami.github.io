@@ -3,8 +3,6 @@ title: JavaFX 项目构建为可执行文件
 date: 2023/10/29
 tags:
  - JavaFX
-categories:
- - dev
 ---
 
 # JavaFX 项目构建为可执行文件

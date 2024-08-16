@@ -3,8 +3,6 @@ title: PowerShell 终端设置默认编码页为 UTF-8
 date: 2024/8/13
 tags:
   - Console
-categories:
-  - ops
 ---
 
 # PowerShell 终端设置默认编码页为 UTF-8

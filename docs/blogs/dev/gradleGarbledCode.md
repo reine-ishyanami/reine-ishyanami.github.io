@@ -3,8 +3,6 @@ title: Gradle 项目中文乱码解决方案
 date: 2024/8/1
 tags:
  - Java
-categories:
- - dev
 ---
 
 # Gradle 项目中文乱码解决方案

@@ -3,8 +3,6 @@ title: 使用 Javassist 做字节码处理
 date: 2023/12/5
 tags:
  - Java
-categories:
- - dev
 ---
 
 # 使用 Javassist 做字节码处理

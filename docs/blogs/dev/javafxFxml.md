@@ -3,8 +3,6 @@ title: JavaFX Fxml 使用说明
 date: 2023/8/6
 tags:
  - JavaFX
-categories:
- - dev
 ---
 
 # JavaFX Fxml使 用说明

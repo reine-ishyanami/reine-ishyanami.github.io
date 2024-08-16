@@ -3,8 +3,6 @@ title: Windows 控制台颜色编码
 date: 2023/7/19
 tags:
  - Console
-categories:
- - dev
 ---
 
 # Windows控制台颜色编码

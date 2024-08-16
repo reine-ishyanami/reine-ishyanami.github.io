@@ -3,8 +3,6 @@ title: Java 基于 SpringBoot 框架使用 GraphQL 风格 API
 date: 2024/4/14
 tags:
  - SpringBoot
-categories:
- - dev
 ---
 
 # Java 基于 SpringBoot 框架使用 GraphQL 风格 API
@@ -241,7 +239,7 @@ mutation bookOperations($id: ID, $name: String, $pageCount: Int, $authorId: ID){
 
 #### 通过 webUI 进行测试
 
-通过 [http://localhost:8080/graphql](http://localhost:8080/graphql) 访问，可以看到如下页面，编写graphql查询语句
+通过 [本地接口](http://localhost:8080/graphql) 访问，可以看到如下页面，编写graphql查询语句
 
 ![javaGraphql_01](../assets/javaGraphql_01.png)
 

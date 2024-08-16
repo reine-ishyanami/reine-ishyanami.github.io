@@ -3,8 +3,6 @@ title: MySQL 开窗函数
 date: 2023/7/22
 tags:
  - MySQL
-categories:
- - ops
 ---
 
 # MySQL 开窗函数

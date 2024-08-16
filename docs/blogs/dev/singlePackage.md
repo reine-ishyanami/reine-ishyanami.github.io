@@ -4,8 +4,6 @@ date: 2023/7/22
 tags:
  - JavaFX
  - SpringBoot
-categories:
- - dev
 ---
 
 # Java 项目打包成可执行 jar 文件
