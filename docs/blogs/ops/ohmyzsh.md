@@ -25,10 +25,12 @@ tags:
 	sudo apt install zsh git curl wget -y
 	```
 
-3. 设置 zsh 为默认 shell
+3. 使用 `whereis zsh` 查看 `zsh` 安装位置，选择第一个路径
+
+4. 设置 zsh 为默认 shell
 
    ```shell
-   chsh -s /bin/zsh
+   chsh -s /usr/bin/zsh  # /usr/bin/zsh 是 zsh 安装路径，由上一步可知
    ```
 
 4. 重启终端或直接输入 `zsh` 进入 zsh 终端
@@ -37,11 +39,13 @@ tags:
 
 1. 安装 oh-my-zsh
 	
-	| Method | Command                                         |
-	|--------|-------------------------------------------------|
-	| curl   | sh -c "$(curl -fsSL https://install.ohmyz.sh/)" |
-	| wget   | sh -c "$(wget -O- https://install.ohmyz.sh/)"   |
-	| fetch  | sh -c "$(fetch -o - https://install.ohmyz.sh/)" |
+	| Method        | Command                                                                            |
+	|---------------|------------------------------------------------------------------------------------|
+	| curl          | sh -c "$(curl -fsSL https://install.ohmyz.sh/)"                                    |
+	| wget          | sh -c "$(wget -O- https://install.ohmyz.sh/)"                                      |
+	| fetch         | sh -c "$(fetch -o - https://install.ohmyz.sh/)"                                    |
+	| 国内 curl 镜像 | sh -c "$(curl -fsSL https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)" |
+	| 国内 wget 镜像 | sh -c "$(wget -O- https://gitee.com/pocmon/ohmyzsh/raw/master/tools/install.sh)"   |
 
 2. 查看可用主题
 
@@ -66,7 +70,8 @@ tags:
 	| z                       | 内置                                                                                                                                   |
 	| extract                 | 内置                                                                                                                                   |
 
-5. 配置插件
+
+5. 配置插件 `vim ~/.zshrc`
 
 	```shell
  	...
