@@ -8,6 +8,7 @@ tags:
 # Java 项目如何在提交时检查代码格式
 
 ## 使用 Spotless 插件
+
 [项目地址](https://github.com/diffplug/spotless)
 
 ### maven 插件引入方式
@@ -92,6 +93,7 @@ tags:
             importOrder ''
             trimTrailingWhitespace()
             indentWithSpaces 4
+            palantirJavaFormat("2.50.0").style("PALANTIR").formatJavadoc(false)
         }
     }
     ```
