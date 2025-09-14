@@ -125,3 +125,55 @@ photorealistic, realistic, (worst quality, low quality, normal quality:2), nsfw,
 5. 采样步数：原始噪点图片去噪次数，默认20
 6. 随机种子：每次随机(-1)，固定则每次一致
 7. CFG: 越高提示词还原度越高
+8. 重绘幅度：在图生图中，取值0.0-1.0，越小重绘幅度越小（如小于0.5则几乎不会重绘或看不出差别）
+
+## 缩放模式（图生图）
+
+1. 拉伸原图
+2. 裁剪原图
+3. 填充空白
+4. 潜空间放大（效果类似拉伸）
+
+## 高分辨率修复（高清放大）
+
+### 放大算法
+
+1. Latent（潜空间放大算法）
+2. R-ESRGAN（非潜空间放大算法）
+
+**SD放大** （分块放大）
+
+## 局部重绘
+
+## 附加网络模型
+
+> 使用时需要对应上 Checkpoint 大模型版本
+
+1. Embedding
+2. LoRA
+
+## Embedding
+
+> 对每一个特定的提示词使用固定的风格，形象
+
+作用
+
+1. 特定触发词绑定人物形象
+2. 特定触发词绑定指定绘制风格
+3. 辅助描述人物固定形象
+4. 消除作品负面影响（负面 Embedding）
+5. 提升图片质量
+
+## LoRA
+
+WebUI中使用方法
+
+```
+<lora:blindbox_v1_mix:1>  // <lora:name:weight>
+```
+
+1. 角色类(Character) LoRA
+2. 风格类(Style) LoRA
+3. 概念类(Concept/Object) LoRA
+4. 功能性(Function) LoRA
+
