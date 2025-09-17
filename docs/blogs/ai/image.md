@@ -177,3 +177,27 @@ WebUI中使用方法
 3. 概念类(Concept/Object) LoRA
 4. 功能性(Function) LoRA
 
+## ControlNet
+
+控制网络
+
+1. Canny (硬边缘) 
+
+**线稿上色**
+
+> 主要用于识别图片边缘，生成的图片为密集的线条图
+> Threshold 影响识别到的细节数量，越小细节越多
+
+2. Lineart (线稿)
+
+**通常可用于替代 Canny**
+
+3. SoftEdge (软边缘)
+
+> 相较于 Canny，线条更加粗糙，柔软
+
+4. Depth (深度)
+
+> 图片内容处理后以黑白渐变区分物体在画面中的远近，远黑近白
+
+1. OpenPose (姿态)
